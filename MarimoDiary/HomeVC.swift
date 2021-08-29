@@ -35,14 +35,21 @@ class HomeVC: UIViewController {
                 tempDate = $0.date!
             } // 마지막에 저장된 것 보여줄 것임
             
+                  
             // date to string
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy.MM.dd"
-
             let dateString: String = dateFormatter.string(from: tempDate)
+            
+            // D+Day 구하기
+            let dDay = Int(Date().timeIntervalSince(tempDate)) / 86400 + 1
 
+            // 레이블에 표시
             self.nameLabel.text = tempName
             self.dateLabel.text = dateString
+            self.dDayLabel.text = "D + " + String(dDay)
+            
+            
             
         } catch {
             print(error.localizedDescription)

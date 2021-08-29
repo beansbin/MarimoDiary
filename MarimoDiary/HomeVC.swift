@@ -22,6 +22,11 @@ class HomeVC: UIViewController {
         // 버튼 디자인
         designBtn()
         
+       
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -33,6 +38,8 @@ class HomeVC: UIViewController {
             marimo.forEach {
                 tempName = $0.name!
                 tempDate = $0.date!
+                print(tempName)
+                print(tempDate)
             } // 마지막에 저장된 것 보여줄 것임
             
                   
@@ -55,7 +62,6 @@ class HomeVC: UIViewController {
             
         }
 
-        
     }
 
     

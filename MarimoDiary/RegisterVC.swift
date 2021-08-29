@@ -26,6 +26,8 @@ class RegisterVC: UIViewController {
     
     // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
+        
+        
         // string to date
         let dateFormatter = DateFormatter()
 

@@ -11,7 +11,6 @@ class RegisterVC: UIViewController {
 
     @IBOutlet var registerBtn: UIButton!
     @IBOutlet weak var name: UITextField!
-
     @IBOutlet weak var dateString: UITextField!
     
     
@@ -26,7 +25,9 @@ class RegisterVC: UIViewController {
     
     // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
-        
+        if name.text == nil || dateString.text == nil {
+            
+        }
         
         // string to date
         let dateFormatter = DateFormatter()

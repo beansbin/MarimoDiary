@@ -23,6 +23,7 @@
 		154BE14D26DB8C0100BBCD2B /* customPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154BE14C26DB8C0100BBCD2B /* customPagerCell.xib */; };
 		154BE15526DB916D00BBCD2B /* MarimoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE15426DB916D00BBCD2B /* MarimoInfo.swift */; };
 		154BE15826DBA55C00BBCD2B /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE15726DBA55C00BBCD2B /* DebugPrint.swift */; };
+		154BE15B26DBA62A00BBCD2B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE15A26DBA62A00BBCD2B /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		154BE14C26DB8C0100BBCD2B /* customPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customPagerCell.xib; sourceTree = "<group>"; };
 		154BE15426DB916D00BBCD2B /* MarimoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarimoInfo.swift; sourceTree = "<group>"; };
 		154BE15726DBA55C00BBCD2B /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
+		154BE15A26DBA62A00BBCD2B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8AB91F8C475D2FF7A63620B0 /* Pods_MarimoDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarimoDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9265EDB55E07E3E2336E72B1 /* Pods-MarimoDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarimoDiary.release.xcconfig"; path = "Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary.release.xcconfig"; sourceTree = "<group>"; };
 		C789A2E2DBC5BD08ADB9EE3C /* Pods-MarimoDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarimoDiary.debug.xcconfig"; path = "Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				154BE14426DB6A1700BBCD2B /* RegisterVC.swift */,
 				154BE14C26DB8C0100BBCD2B /* customPagerCell.xib */,
 				154BE15726DBA55C00BBCD2B /* DebugPrint.swift */,
+				154BE15A26DBA62A00BBCD2B /* Utils.swift */,
 			);
 			path = MarimoDiary;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				154BE12B26DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld in Sources */,
 				154BE12326DB68AE00BBCD2B /* SceneDelegate.swift in Sources */,
 				154BE15826DBA55C00BBCD2B /* DebugPrint.swift in Sources */,
+				154BE15B26DBA62A00BBCD2B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

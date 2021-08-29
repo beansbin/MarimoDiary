@@ -12,14 +12,14 @@ class ReadVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+  
     }
     
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             // 페이저뷰에 셀 등록
-            self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+//            self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+            self.pagerView.register(UINib(nibName:"customPagerCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
             // 아이템 크기 설정
             self.pagerView.itemSize = FSPagerView.automaticSize
             // 무한 스크롤
@@ -34,8 +34,9 @@ class ReadVC: UIViewController {
     
 }
 
-class customPagerCell : FSPagerViewCell {
-    
+class CustomPagerCell : FSPagerViewCell {
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var textField: UITextView!
 }
 
 extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
@@ -47,9 +48,9 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
         
     // 각 셀 설정
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.image = UIImage(named : "basic")
-        cell.textLabel?.text = "text!"
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index) as! CustomPagerCell
+        cell.imgView?.image = UIImage(named : "basic")
+        cell.textField?.text = "text!"
         
         return cell
     }

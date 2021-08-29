@@ -11,7 +11,14 @@ class SplashVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // 등록뷰로 이동
+        guard let viewController = self.storyboard?.instantiateViewController(identifier: "RegisterVC") else { return }
+        
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
     }
 
 

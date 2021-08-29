@@ -53,6 +53,7 @@
                         <viewLayoutGuide key="safeArea" id="rQR-Yk-Kje"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GjG-lh-79V"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8F-PK-M5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,7 +92,7 @@
         <!--RegisterVC-->
         <scene sceneID="AMk-WL-xeO">
             <objects>
-                <viewController id="xCx-Px-qUE" customClass="RegisterVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="xCx-Px-qUE" customClass="RegisterVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YgB-iN-zfd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +119,9 @@
                                 <state key="normal" title="등록하기">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Uef-F6-lIb" kind="presentation" modalPresentationStyle="fullScreen" id="wOg-9e-Wy8"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ylr-j5-5xD">
                                 <rect key="frame" x="124" y="480" width="186" height="1"/>

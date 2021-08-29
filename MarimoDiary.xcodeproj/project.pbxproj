@@ -14,6 +14,7 @@
 		154BE12B26DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12926DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld */; };
 		154BE12D26DB68B000BBCD2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154BE12C26DB68B000BBCD2B /* Assets.xcassets */; };
 		154BE13026DB68B000BBCD2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154BE12E26DB68B000BBCD2B /* LaunchScreen.storyboard */; };
+		154BE13926DB695600BBCD2B /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE13826DB695600BBCD2B /* SplashVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		154BE12C26DB68B000BBCD2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		154BE12F26DB68B000BBCD2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		154BE13126DB68B000BBCD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		154BE13826DB695600BBCD2B /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				154BE12E26DB68B000BBCD2B /* LaunchScreen.storyboard */,
 				154BE13126DB68B000BBCD2B /* Info.plist */,
 				154BE12926DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld */,
+				154BE13826DB695600BBCD2B /* SplashVC.swift */,
 			);
 			path = MarimoDiary;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				154BE12526DB68AE00BBCD2B /* ViewController.swift in Sources */,
+				154BE13926DB695600BBCD2B /* SplashVC.swift in Sources */,
 				154BE12126DB68AE00BBCD2B /* AppDelegate.swift in Sources */,
 				154BE12B26DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld in Sources */,
 				154BE12326DB68AE00BBCD2B /* SceneDelegate.swift in Sources */,

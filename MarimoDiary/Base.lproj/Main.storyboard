@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="139" y="93"/>
         </scene>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="PiH-Gj-agX">
             <objects>
-                <viewController id="Uef-F6-lIb" sceneMemberID="viewController">
+                <viewController id="Uef-F6-lIb" customClass="HomeVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLj-he-MCG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="849" y="92"/>
         </scene>
-        <!--View Controller-->
+        <!--WriteVC-->
         <scene sceneID="xYt-JR-lJq">
             <objects>
-                <viewController id="QL7-BG-zDF" sceneMemberID="viewController">
+                <viewController id="QL7-BG-zDF" customClass="WriteVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2YS-u7-FLV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

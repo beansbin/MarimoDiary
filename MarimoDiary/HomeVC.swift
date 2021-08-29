@@ -15,13 +15,10 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        writeBtn.layer.borderWidth = 1
-        writeBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
-        writeBtn.layer.cornerRadius = 10
+       
         
-        readBtn.layer.borderWidth = 1
-        readBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
-        readBtn.layer.cornerRadius = 10
+        // 버튼 디자인
+        designBtn()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -37,6 +34,18 @@ class HomeVC: UIViewController {
             
         }
 
+        
+    }
+    
+    // 버튼 디자인
+    func designBtn() {
+        writeBtn.layer.borderWidth = 1
+        writeBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
+        writeBtn.layer.cornerRadius = 10
+        
+        readBtn.layer.borderWidth = 1
+        readBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
+        readBtn.layer.cornerRadius = 10
         
     }
 

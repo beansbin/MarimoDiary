@@ -46,7 +46,7 @@
         <!--HomeVC-->
         <scene sceneID="PiH-Gj-agX">
             <objects>
-                <viewController id="Uef-F6-lIb" customClass="HomeVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Uef-F6-lIb" customClass="HomeVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLj-he-MCG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

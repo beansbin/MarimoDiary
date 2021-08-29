@@ -8,9 +8,14 @@ import UIKit
 
 class RegisterVC: UIViewController {
 
+    @IBOutlet var registerBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        registerBtn.layer.borderWidth = 1
+        registerBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
+        registerBtn.layer.cornerRadius = 10
     }
 
 

@@ -38,8 +38,8 @@ class HomeVC: UIViewController {
             marimo.forEach {
                 tempName = $0.name!
                 tempDate = $0.date!
-                print(tempName)
-                print(tempDate)
+                // print(tempName)
+                // print(tempDate)
             } // 마지막에 저장된 것 보여줄 것임
             
                   
@@ -48,8 +48,11 @@ class HomeVC: UIViewController {
             dateFormatter.dateFormat = "yyyy.MM.dd"
             let dateString: String = dateFormatter.string(from: tempDate)
             
+            
             // D+Day 구하기
             let dDay = Int(Date().timeIntervalSince(tempDate)) / 86400 + 1
+            print(dDay)
+            print(";;")
 
             // 레이블에 표시
             self.nameLabel.text = tempName

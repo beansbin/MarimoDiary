@@ -276,7 +276,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerBtn:" destination="xCx-Px-qUE" eventType="touchUpInside" id="37v-BL-Me8"/>
-                                    <segue destination="Uef-F6-lIb" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="wOg-9e-Wy8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -295,9 +294,6 @@
             <point key="canvasLocation" x="828.98550724637687" y="91.741071428571431"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wOg-9e-Wy8"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="basic" width="300" height="300"/>
         <image name="logo" width="300" height="300"/>

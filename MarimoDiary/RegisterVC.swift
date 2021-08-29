@@ -25,39 +25,57 @@ class RegisterVC: UIViewController {
     
     // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
-        if name.text == nil || dateString.text == nil {
-            
-        }
         
-        // string to date
-        let dateFormatter = DateFormatter()
+        if self.name.text == "" || self.dateString.text == "" {
+            self.alert("값을 다시 입력해주세요")
+        } else {
+            // string to date
+            let dateFormatter = DateFormatter()
 
-        dateFormatter.dateFormat = "yyyyMMdd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+            dateFormatter.dateFormat = "yyyyMMdd"
+            dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
 
-        let date :Date = dateFormatter.date(from: self.dateString.text!)!
-        let marimoInfo = MarimoInfo(name: self.name.text!, date: date)
-        
-        // coreData에 저장
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Marimo", in: context)
-        if let entity = entity { let marimo = NSManagedObject(entity: entity, insertInto: context)
-            marimo.setValue(marimoInfo.name, forKey: "name")
-            marimo.setValue(marimoInfo.date, forKey: "date")
+            guard let date :Date = dateFormatter.date(from: self.dateString.text!) else {
+                self.alert("날짜를 다시 입력해주세요")
+                return
+            }
             
-            do {
-                try context.save()
+            // 오늘 날짜의 시간을 0으로 바꾸는 작업
+            let dateString: String = dateFormatter.string(from: Date())
+            let todayDate: Date = dateFormatter.date(from:dateString)!
+
+            
+            if (Int(todayDate.timeIntervalSince(date)) / 86400)  < 0 {
+                self.alert("날짜를 다시 입력해주세요")
+                return
+            }
+            
+            let marimoInfo = MarimoInfo(name: self.name.text!, date: date)
+            
+            // coreData에 저장
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "Marimo", in: context)
+            if let entity = entity { let marimo = NSManagedObject(entity: entity, insertInto: context)
+                marimo.setValue(marimoInfo.name, forKey: "name")
+                marimo.setValue(marimoInfo.date, forKey: "date")
                 
-            } catch {
-                print(error.localizedDescription)
-                
+                do {
+                    try context.save()
+                    
+                } catch {
+                    print(error.localizedDescription)
+                    
+                }
             }
 
-
+            // 홈으로 이동
+            guard let viewController = self.storyboard?.instantiateViewController(identifier: "HomeVC") else { return }
             
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: false)
         }
-
+       
 
 
         

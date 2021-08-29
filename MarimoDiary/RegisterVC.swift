@@ -52,7 +52,7 @@ class RegisterVC: UIViewController {
             
             let marimoInfo = MarimoInfo(name: self.name.text!, date: date)
             
-            // coreData에 저장
+            // coreData에 마리모 정보 저장
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             let entity = NSEntityDescription.entity(forEntityName: "Marimo", in: context)

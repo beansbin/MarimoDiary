@@ -22,17 +22,15 @@ class HomeVC: UIViewController {
         // 버튼 디자인
         designBtn()
         
-       
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        
         var tempName : String = ""
         var tempDate : Date = Date()
+        
         do {
             let marimo = try context.fetch(Marimo.fetchRequest()) as! [Marimo]
             marimo.forEach {
@@ -42,17 +40,13 @@ class HomeVC: UIViewController {
                 // print(tempDate)
             } // 마지막에 저장된 것 보여줄 것임
             
-                  
             // date to string
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy.MM.dd"
             let dateString: String = dateFormatter.string(from: tempDate)
             
-            
             // D+Day 구하기
             let dDay = Int(Date().timeIntervalSince(tempDate)) / 86400 + 1
-            print(dDay)
-            print(";;")
 
             // 레이블에 표시
             self.nameLabel.text = tempName

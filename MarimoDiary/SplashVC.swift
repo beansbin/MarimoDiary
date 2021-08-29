@@ -18,7 +18,7 @@ class SplashVC: UIViewController {
         guard let viewController = self.storyboard?.instantiateViewController(identifier: "RegisterVC") else { return }
         
         viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true)
+        self.present(viewController, animated: false)
     }
 
 

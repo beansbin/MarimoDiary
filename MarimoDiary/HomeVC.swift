@@ -8,10 +8,19 @@
 import UIKit
 
 class HomeVC: UIViewController {
-
+    @IBOutlet var writeBtn: UIButton!
+    @IBOutlet var readBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        writeBtn.layer.borderWidth = 1
+        writeBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
+        writeBtn.layer.cornerRadius = 10
+        
+        readBtn.layer.borderWidth = 1
+        readBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
+        readBtn.layer.cornerRadius = 10
     }
 
 

@@ -154,6 +154,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="GjG-lh-79V"/>
                     <connections>
+                        <outlet property="dDayLabel" destination="3ur-YL-O3y" id="rfv-HH-zcr"/>
+                        <outlet property="dateLabel" destination="rn2-4f-GHk" id="DHe-gL-eEU"/>
+                        <outlet property="nameLabel" destination="z2V-47-s0n" id="ZCl-M6-4d8"/>
                         <outlet property="readBtn" destination="1Mr-wK-DeR" id="hrA-Z3-LSa"/>
                         <outlet property="writeBtn" destination="sso-06-IkK" id="kvF-CW-eku"/>
                     </connections>

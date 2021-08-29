@@ -24,17 +24,18 @@ class RegisterVC: UIViewController {
         registerBtn.layer.cornerRadius = 10
     }
     
+    // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
+        // string to date
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "yyyyMMdd"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
 
-        ////  Todo : nil인 경우
         let date :Date = dateFormatter.date(from: self.dateString.text!)!
         let marimoInfo = MarimoInfo(name: self.name.text!, date: date)
         
-        
+        // coreData에 저장
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Marimo", in: context)

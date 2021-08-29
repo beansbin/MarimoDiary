@@ -50,7 +50,6 @@ class HomeVC: UIViewController {
             self.dDayLabel.text = "D + " + String(dDay)
             
             
-            
         } catch {
             print(error.localizedDescription)
             
@@ -58,6 +57,7 @@ class HomeVC: UIViewController {
 
         
     }
+
     
     // 버튼 디자인
     func designBtn() {

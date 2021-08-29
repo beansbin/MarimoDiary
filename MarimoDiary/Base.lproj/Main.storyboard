@@ -148,6 +148,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xV3-T1-AC9">
+                                <rect key="frame" x="355" y="83" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="setting"/>
+                                <connections>
+                                    <segue destination="xCx-Px-qUE" kind="show" id="t1S-ff-nHv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rQR-Yk-Kje"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -231,7 +239,7 @@
             <objects>
                 <viewController storyboardIdentifier="RegisterVC" id="xCx-Px-qUE" customClass="RegisterVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YgB-iN-zfd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="basic" translatesAutoresizingMaskIntoConstraints="NO" id="xAV-1w-tZk">
@@ -275,6 +283,7 @@
                         <viewLayoutGuide key="safeArea" id="7x9-Bc-8a4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tkv-CU-ntg"/>
                     <connections>
                         <outlet property="dateString" destination="gZL-Bv-6xh" id="Y3G-6f-1hk"/>
                         <outlet property="name" destination="dIg-ti-Kix" id="Hfm-0H-c26"/>
@@ -286,10 +295,14 @@
             <point key="canvasLocation" x="828.98550724637687" y="91.741071428571431"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="t1S-ff-nHv"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="basic" width="300" height="300"/>
         <image name="logo" width="300" height="300"/>
         <image name="pippet" width="50" height="50"/>
+        <image name="setting" width="24" height="24"/>
         <image name="water" width="50" height="50"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

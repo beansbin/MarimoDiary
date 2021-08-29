@@ -18,6 +18,7 @@
 		154BE13C26DB699200BBCD2B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE13B26DB699200BBCD2B /* HomeVC.swift */; };
 		154BE13F26DB69BE00BBCD2B /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE13E26DB69BE00BBCD2B /* WriteVC.swift */; };
 		154BE14226DB69E100BBCD2B /* ReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE14126DB69E100BBCD2B /* ReadVC.swift */; };
+		154BE14526DB6A1700BBCD2B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE14426DB6A1700BBCD2B /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		154BE13B26DB699200BBCD2B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		154BE13E26DB69BE00BBCD2B /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
 		154BE14126DB69E100BBCD2B /* ReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadVC.swift; sourceTree = "<group>"; };
+		154BE14426DB6A1700BBCD2B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				154BE13B26DB699200BBCD2B /* HomeVC.swift */,
 				154BE13E26DB69BE00BBCD2B /* WriteVC.swift */,
 				154BE14126DB69E100BBCD2B /* ReadVC.swift */,
+				154BE14426DB6A1700BBCD2B /* RegisterVC.swift */,
 			);
 			path = MarimoDiary;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				154BE12126DB68AE00BBCD2B /* AppDelegate.swift in Sources */,
 				154BE14226DB69E100BBCD2B /* ReadVC.swift in Sources */,
 				154BE13C26DB699200BBCD2B /* HomeVC.swift in Sources */,
+				154BE14526DB6A1700BBCD2B /* RegisterVC.swift in Sources */,
 				154BE12B26DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld in Sources */,
 				154BE12326DB68AE00BBCD2B /* SceneDelegate.swift in Sources */,
 			);

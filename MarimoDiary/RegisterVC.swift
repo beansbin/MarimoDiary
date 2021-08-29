@@ -5,10 +5,16 @@
 //  Created by 박예빈 on 2021/08/29.
 //
 import UIKit
+import CoreData
 
 class RegisterVC: UIViewController {
 
     @IBOutlet var registerBtn: UIButton!
+    @IBOutlet weak var name: UITextField!
+
+    @IBOutlet weak var dateString: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,9 +24,44 @@ class RegisterVC: UIViewController {
         registerBtn.layer.cornerRadius = 10
     }
     
+    @IBAction func registerBtn(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "yyyyMMdd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+
+        ////  Todo : nil인 경우
+        let date :Date = dateFormatter.date(from: self.dateString.text!)!
+        let marimoInfo = MarimoInfo(name: self.name.text!, date: date)
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Marimo", in: context)
+        if let entity = entity { let marimo = NSManagedObject(entity: entity, insertInto: context)
+            marimo.setValue(marimoInfo.name, forKey: "name")
+            marimo.setValue(marimoInfo.date, forKey: "date")
+            
+            do {
+                try context.save()
+                
+            } catch {
+                print(error.localizedDescription)
+                
+            }
+
+
+            
+        }
+
+
+
+        
+    }
+    
     // 화면 터치해서 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-
+        
         self.view.endEditing(true)
     }
 

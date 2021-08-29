@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeVC: UIViewController {
     @IBOutlet var writeBtn: UIButton!
@@ -21,6 +22,22 @@ class HomeVC: UIViewController {
         readBtn.layer.borderWidth = 1
         readBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
         readBtn.layer.cornerRadius = 10
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            let marimo = try context.fetch(Marimo.fetchRequest()) as! [Marimo]
+            marimo.forEach {
+                print($0.name)
+                print($0.date)
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+            
+        }
+
+        
     }
 
 

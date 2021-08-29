@@ -81,6 +81,9 @@
                                 <state key="normal" title="일기 보기">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="qXo-ZT-Nkv" kind="show" id="PxT-xi-Nno"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RIu-wg-dhw">
                                 <rect key="frame" x="0.0" y="232" width="414" height="356"/>
@@ -195,15 +198,30 @@
             <objects>
                 <viewController id="qXo-ZT-Nkv" customClass="ReadVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nDy-q7-QzJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a8p-3Y-rZi" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qXo-ZT-Nkv" id="8MK-ah-Jar"/>
+                                    <outlet property="delegate" destination="qXo-ZT-Nkv" id="UBQ-6E-Vcc"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="92R-l8-Kcu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ylb-vj-6WI"/>
+                    <connections>
+                        <outlet property="pagerView" destination="a8p-3Y-rZi" id="Ux9-gF-lxi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plE-yy-utR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2855" y="92"/>
+            <point key="canvasLocation" x="2853.6231884057975" y="91.741071428571431"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="AMk-WL-xeO">

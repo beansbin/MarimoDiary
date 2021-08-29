@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1F328A24F17DB25844DF43 /* Pods_MarimoDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB91F8C475D2FF7A63620B0 /* Pods_MarimoDiary.framework */; };
 		154BE12126DB68AE00BBCD2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12026DB68AE00BBCD2B /* AppDelegate.swift */; };
 		154BE12326DB68AE00BBCD2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12226DB68AE00BBCD2B /* SceneDelegate.swift */; };
 		154BE12526DB68AE00BBCD2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12426DB68AE00BBCD2B /* ViewController.swift */; };
@@ -36,6 +37,9 @@
 		154BE13E26DB69BE00BBCD2B /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
 		154BE14126DB69E100BBCD2B /* ReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadVC.swift; sourceTree = "<group>"; };
 		154BE14426DB6A1700BBCD2B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		8AB91F8C475D2FF7A63620B0 /* Pods_MarimoDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarimoDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9265EDB55E07E3E2336E72B1 /* Pods-MarimoDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarimoDiary.release.xcconfig"; path = "Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary.release.xcconfig"; sourceTree = "<group>"; };
+		C789A2E2DBC5BD08ADB9EE3C /* Pods-MarimoDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarimoDiary.debug.xcconfig"; path = "Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1F328A24F17DB25844DF43 /* Pods_MarimoDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				154BE11F26DB68AE00BBCD2B /* MarimoDiary */,
 				154BE11E26DB68AE00BBCD2B /* Products */,
+				76D2B8F8143F60441427038A /* Pods */,
+				8870DA8E46FBCB361C24458E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +92,24 @@
 			path = MarimoDiary;
 			sourceTree = "<group>";
 		};
+		76D2B8F8143F60441427038A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C789A2E2DBC5BD08ADB9EE3C /* Pods-MarimoDiary.debug.xcconfig */,
+				9265EDB55E07E3E2336E72B1 /* Pods-MarimoDiary.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8870DA8E46FBCB361C24458E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AB91F8C475D2FF7A63620B0 /* Pods_MarimoDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 154BE13426DB68B000BBCD2B /* Build configuration list for PBXNativeTarget "MarimoDiary" */;
 			buildPhases = (
+				4AF2CC923EC64C25806718F7 /* [CP] Check Pods Manifest.lock */,
 				154BE11926DB68AE00BBCD2B /* Sources */,
 				154BE11A26DB68AE00BBCD2B /* Frameworks */,
 				154BE11B26DB68AE00BBCD2B /* Resources */,
+				FC9179672C61CF05A2748F27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +176,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AF2CC923EC64C25806718F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarimoDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC9179672C61CF05A2748F27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarimoDiary/Pods-MarimoDiary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		154BE11926DB68AE00BBCD2B /* Sources */ = {
@@ -307,6 +376,7 @@
 		};
 		154BE13526DB68B000BBCD2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C789A2E2DBC5BD08ADB9EE3C /* Pods-MarimoDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -326,6 +396,7 @@
 		};
 		154BE13626DB68B000BBCD2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9265EDB55E07E3E2336E72B1 /* Pods-MarimoDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

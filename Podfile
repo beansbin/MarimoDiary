@@ -6,5 +6,6 @@ target 'MarimoDiary' do
   use_frameworks!
 
   # Pods for MarimoDiary
+  pod 'FSPagerView'
 
 end

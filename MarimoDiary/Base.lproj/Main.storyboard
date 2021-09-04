@@ -198,6 +198,7 @@
                         <outlet property="dateLabel" destination="rn2-4f-GHk" id="DHe-gL-eEU"/>
                         <outlet property="nameLabel" destination="z2V-47-s0n" id="ZCl-M6-4d8"/>
                         <outlet property="readBtn" destination="OZp-fQ-wxb" id="EWx-Ys-sWj"/>
+                        <outlet property="weatherImgView" destination="kda-Ue-F91" id="ZTg-xx-8JC"/>
                         <outlet property="writeBtn" destination="xKB-jz-2d8" id="eIU-a5-NHk"/>
                     </connections>
                 </viewController>

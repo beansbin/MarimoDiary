@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import CoreLocation
+import Alamofire
 
 class HomeVC: UIViewController {
     @IBOutlet var writeBtn: UIButton!
@@ -31,6 +32,8 @@ class HomeVC: UIViewController {
         // 위도, 경도 출력
         print(LocationService.shared.longitude)
         print(LocationService.shared.latitude)
+        
+        WeatherDataManager().setCurrentWeather(lati: Float(LocationService.shared.latitude), longi: Float(LocationService.shared.longitude))
         
     }
     
@@ -88,7 +91,7 @@ class HomeVC: UIViewController {
 class WeatherDataManager {
     static var shread: WeatherDataManager = WeatherDataManager()
     let baseURL: String = "https://api.openweathermap.org/data/2.5/weather?"
-    let appid: String = "&APPID=646f4d9bc930541a09dcfc5e6eb91c23"
+    let appid: String = "&APPID=2759880296dd0cae8b4b96a8a81eaa37"
     
     // apiKey 접근하기
     private var apiKey: String {
@@ -108,43 +111,31 @@ class WeatherDataManager {
             return value
         }
     }
+
     
     func setCurrentWeather(lati: Float, longi: Float)  {
-        let strLati = "lat=\(lati)&"
-        let strLongi = "lon=\(longi)"
-        let url: URL = URL(string: baseURL+strLati+strLongi+self.appid)!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        session.dataTask(with: request) { (data, response, error) in
-          let code = (response as! HTTPURLResponse).statusCode
-          if let data = data {
-              let Arr = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-            let name = Arr["name"]
-            let temp = ((Arr["main"] as! [String:Any])["temp"] as! Float)-273
-            let maxTemp = ((Arr["main"] as! [String:Any])["temp_max"] as! Float)-273
-            let minTemp = ((Arr["main"] as! [String:Any])["temp_min"] as! Float)-273
-            print(minTemp)
-            let icon = (Arr["weather"] as! [[String: Any]])[0]["icon"]
-            self.returnDic = ["name":name,
-                              "temp":temp,
-                              "icon":icon,
-                              "maxTemp":maxTemp,
-                              "minTemp":minTemp]
-            print(self.returnDic)
-            completion(true, self.returnDic, error)
-          }
-        }.resume()
+        let strLati = "lat=\(Float(lati))&"
+        let strLongi = "lon=\(Float(longi))"
+        
+        let url = baseURL + strLati + strLongi + appid
+        print(url)
+        
+        AF.request(url, method: .get, encoding: JSONEncoding.default).validate(statusCode: 200..<300).responseJSON { (json) in
+            let weatherResponse = try! JSONDecoder().decode(WeatherResponse.self, from: json.data!)
+            
+            print(weatherResponse)
+        }
     }
 }
 
 // 위치 관련 코드
-extension HomeVC :  CLLocationManagerDelegate {
+extension HomeVC : CLLocationManagerDelegate {
     // 위치 권한 요청
     private func requestAuthorization() {
            if locationManager == nil {
                locationManager = CLLocationManager()
                //정확도를 검사한다.
-               locationManager!.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+               locationManager!.desiredAccuracy = kCLLocationAccuracyBest
                //앱을 사용할때 권한요청
                locationManager!.requestWhenInUseAuthorization()
                locationManager!.delegate = self

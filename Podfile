@@ -7,5 +7,6 @@ target 'MarimoDiary' do
 
   # Pods for MarimoDiary
   pod 'FSPagerView'
+  pod 'Alamofire', '~> 5.4'
 
 end

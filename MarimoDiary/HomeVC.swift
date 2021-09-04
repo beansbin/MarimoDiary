@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class HomeVC: UIViewController, CLLocationManagerDelegate {
+class HomeVC: UIViewController {
     @IBOutlet var writeBtn: UIButton!
     @IBOutlet var readBtn: UIButton!
     @IBOutlet weak var dDayLabel: UILabel!
@@ -27,6 +27,10 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
         
         // 위치 권한 설정
         requestAuthorization()
+        
+        // 위도, 경도 출력
+        print(LocationService.shared.longitude)
+        print(LocationService.shared.latitude)
         
     }
     
@@ -64,9 +68,7 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
             print(error.localizedDescription)
             
         }
-
     }
-
     
     // 버튼 디자인
     func designBtn() {
@@ -80,6 +82,63 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
         
     }
     
+}
+
+// 날씨값을 반환 하는 데이터 센터
+class WeatherDataManager {
+    static var shread: WeatherDataManager = WeatherDataManager()
+    let baseURL: String = "https://api.openweathermap.org/data/2.5/weather?"
+    let appid: String = "&APPID=646f4d9bc930541a09dcfc5e6eb91c23"
+    
+    // apiKey 접근하기
+    private var apiKey: String {
+        get {
+            // 생성한 .plist 파일 경로 불러오기
+            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
+                fatalError("Couldn't find file 'KeyList.plist'.")
+            }
+            
+            // .plist를 딕셔너리로 받아오기
+            let plist = NSDictionary(contentsOfFile: filePath)
+            
+            // 딕셔너리에서 값 찾기
+            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
+                fatalError("Couldn't find key 'OPENWEATHERMAP_KEY' in 'KeyList.plist'.")
+            }
+            return value
+        }
+    }
+    
+    func setCurrentWeather(lati: Float, longi: Float)  {
+        let strLati = "lat=\(lati)&"
+        let strLongi = "lon=\(longi)"
+        let url: URL = URL(string: baseURL+strLati+strLongi+self.appid)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        session.dataTask(with: request) { (data, response, error) in
+          let code = (response as! HTTPURLResponse).statusCode
+          if let data = data {
+              let Arr = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+            let name = Arr["name"]
+            let temp = ((Arr["main"] as! [String:Any])["temp"] as! Float)-273
+            let maxTemp = ((Arr["main"] as! [String:Any])["temp_max"] as! Float)-273
+            let minTemp = ((Arr["main"] as! [String:Any])["temp_min"] as! Float)-273
+            print(minTemp)
+            let icon = (Arr["weather"] as! [[String: Any]])[0]["icon"]
+            self.returnDic = ["name":name,
+                              "temp":temp,
+                              "icon":icon,
+                              "maxTemp":maxTemp,
+                              "minTemp":minTemp]
+            print(self.returnDic)
+            completion(true, self.returnDic, error)
+          }
+        }.resume()
+    }
+}
+
+// 위치 관련 코드
+extension HomeVC :  CLLocationManagerDelegate {
     // 위치 권한 요청
     private func requestAuthorization() {
            if locationManager == nil {
@@ -115,56 +174,12 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
     }
     
     class LocationService {
-        
         static var shared = LocationService()
         var longitude:Double!
         var latitude:Double!
-      
     }
     
-    // apiKey 접근하기
-    private var apiKey: String {
-        get {
-            // 생성한 .plist 파일 경로 불러오기
-            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
-                fatalError("Couldn't find file 'KeyList.plist'.")
-            }
-            
-            // .plist를 딕셔너리로 받아오기
-            let plist = NSDictionary(contentsOfFile: filePath)
-            
-            // 딕셔너리에서 값 찾기
-            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
-                fatalError("Couldn't find key 'OPENWEATHERMAP_KEY' in 'KeyList.plist'.")
-            }
-            return value
-        }
-    }
-
-
-}
-
-
-class WeatherService {
-    // .plist에서 API Key 가져오기
-    private var apiKey: String {
-        get {
-            // 생성한 .plist 파일 경로 불러오기
-            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
-                fatalError("Couldn't find file 'KeyList.plist'.")
-            }
-            
-            // .plist를 딕셔너리로 받아오기
-            let plist = NSDictionary(contentsOfFile: filePath)
-            
-            // 딕셔너리에서 값 찾기
-            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
-                fatalError("Couldn't find key 'OPENWEATHERMAP_KEY' in 'KeyList.plist'.")
-            }
-            return value
-        }
-    }
-
+    
 }
 
 

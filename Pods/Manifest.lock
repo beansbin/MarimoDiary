@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.4.3)
   - FSPagerView (0.8.3)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.4)
   - FSPagerView
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - FSPagerView
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
 
-PODFILE CHECKSUM: 113dadc50717615e40c49d4ec8de2db8da1624e8
+PODFILE CHECKSUM: e2051d68a08138009b6f2551ce169a59dc700cf3
 
 COCOAPODS: 1.10.2

@@ -99,7 +99,7 @@ class HomeVC: UIViewController {
                 case .success(let weatherResponse):
                     DispatchQueue.main.async {
                         weatherInfo.append(weatherResponse.weather.first!.description) // 날씨
-                        weatherInfo.append(String(weatherResponse.main.temp - 32 / 1.8) + "°C") // 온도
+                        weatherInfo.append(String(weatherResponse.main.temp) + "°C") // 온도
                         weatherTemp = weatherInfo[1]
                         print(weatherTemp)
                         
@@ -166,65 +166,7 @@ class HomeVC: UIViewController {
     
 }
 
-//// 날씨값을 반환 하는 데이터 센터
-//class WeatherDataManager {
-//    static var shread: WeatherDataManager = WeatherDataManager()
-//    let baseURL: String = "https://api.openweathermap.org/data/2.5/weather?"
-//    let appid: String = "&APPID="
-//
-//    // apiKey 접근하기
-//    private var apiKey: String {
-//        get {
-//            // 생성한 .plist 파일 경로 불러오기
-//            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
-//                fatalError("Couldn't find file 'KeyList.plist'.")
-//            }
-//
-//            // .plist를 딕셔너리로 받아오기
-//            let plist = NSDictionary(contentsOfFile: filePath)
-//
-//            // 딕셔너리에서 값 찾기
-//            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
-//                fatalError("Couldn't find key 'OPENWEATHERMAP_KEY' in 'KeyList.plist'.")
-//            }
-//            return value
-//        }
-//    }
-//
-//    func setCurrentWeather(lati: Float, longi: Float) -> [String] {
-//        let strLati = "lat=\(Float(lati))&"
-//        let strLongi = "lon=\(Float(longi))"
-//        var resultArray: [String] = []
-//
-//        let url = baseURL + strLati + strLongi + appid + apiKey
-//        print(url)
-//        let semaphore = DispatchSemaphore(value: 0)
-//
-//        do {
-//            AF.request(url, method: .get, encoding: JSONEncoding.default).validate(statusCode: 200..<300).responseJSON { (json) in
-//
-//                let weatherResponse = try! JSONDecoder().decode(WeatherResponse.self, from: json.data!)
-//                resultArray.append(weatherResponse.weather[0].description)
-//                resultArray.append(String(weatherResponse.main.temp))
-//                print(resultArray)
-//                defer {
-//                    semaphore.signal() // 네트워킹 끝나면 신호 보내기
-//                }
-//            }
-//        } catch {
-//            print("날씨 정보를 받아오는 데 실패했습니다.")
-//           // semaphore.signal()
-//        }
-//
-//        semaphore.wait() // 네트워킹 끝날 때 까지 대기
-//
-//
-//        return resultArray
-//    }
-//
-//
-//}
-//
+
 // 위치 관련 코드
 extension HomeVC : CLLocationManagerDelegate {
     // 위치 권한 요청
@@ -303,8 +245,9 @@ class WeatherService {
             let appid: String = "&APPID="
             let strLati = "lat=\(Float(lati))&"
             let strLongi = "lon=\(Float(longi))"
+            let celsius = "&units=metric"
         
-            let tempUrl = URL(string:  baseURL + strLati + strLongi + appid + apiKey)
+            let tempUrl = URL(string:  baseURL + strLati + strLongi + appid + apiKey + celsius)
         
             guard let url = tempUrl else {
                        return completion(.failure(.badUrl))

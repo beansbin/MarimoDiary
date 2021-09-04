@@ -76,13 +76,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaG-XT-QT1">
-                                        <rect key="frame" x="184" y="269" width="47" height="27"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="basic" translatesAutoresizingMaskIntoConstraints="NO" id="kda-Ue-F91">
+                                        <rect key="frame" x="112" y="48" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="광합성하기 좋은 날씨에요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ0-D1-ofh">
                                         <rect key="frame" x="127" y="304" width="161" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,10 +87,13 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="basic" translatesAutoresizingMaskIntoConstraints="NO" id="kda-Ue-F91">
-                                        <rect key="frame" x="112" y="48" width="200" height="200"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaG-XT-QT1">
+                                        <rect key="frame" x="134" y="269" width="157" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -198,7 +198,9 @@
                         <outlet property="dateLabel" destination="rn2-4f-GHk" id="DHe-gL-eEU"/>
                         <outlet property="nameLabel" destination="z2V-47-s0n" id="ZCl-M6-4d8"/>
                         <outlet property="readBtn" destination="OZp-fQ-wxb" id="EWx-Ys-sWj"/>
+                        <outlet property="weatherDescriptionLabel" destination="SJ0-D1-ofh" id="Q3e-vb-qvL"/>
                         <outlet property="weatherImgView" destination="kda-Ue-F91" id="ZTg-xx-8JC"/>
+                        <outlet property="weatherLabel" destination="FaG-XT-QT1" id="fRd-v4-2SC"/>
                         <outlet property="writeBtn" destination="xKB-jz-2d8" id="eIU-a5-NHk"/>
                     </connections>
                 </viewController>

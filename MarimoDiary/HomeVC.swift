@@ -18,6 +18,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
 
     @IBOutlet weak var weatherImgView: UIImageView!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var weatherDescriptionLabel: UILabel!
+    
     
     var locationManager: CLLocationManager? // 위치 관련 이벤트 전달
     var currentLocation: CLLocationCoordinate2D! // 위도, 경도 알려줌
@@ -82,7 +85,10 @@ class HomeVC: UIViewController {
             locationAuthorizationStatus = CLLocationManager.authorizationStatus()
         }
         
+        // 위치 권한 있으면 날씨 표시
         var weatherImage = UIImage()
+        var weatherTemp = ""
+        var weatherDescription = ""
         
         if locationAuthorizationStatus == .authorizedWhenInUse {
             var weatherInfo: [String] = []
@@ -93,7 +99,9 @@ class HomeVC: UIViewController {
                 case .success(let weatherResponse):
                     DispatchQueue.main.async {
                         weatherInfo.append(weatherResponse.weather.first!.description) // 날씨
-                        weatherInfo.append(String(weatherResponse.main.temp)) // 온도
+                        weatherInfo.append(String(weatherResponse.main.temp - 32 / 1.8) + "°C") // 온도
+                        weatherTemp = weatherInfo[1]
+                        print(weatherTemp)
                         
                         let weather = weatherInfo[0]
                         print(weather)
@@ -101,25 +109,29 @@ class HomeVC: UIViewController {
                             case "clear sky": fallthrough
                             case "mist":
                                 weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
+                                weatherDescription = "광합성하기 좋은 날이에요"
                                 break
                             case "few clouds": fallthrough
-                            case "scattered clouds":
-                                weatherImage = UIImage(named: "cloud") ?? UIImage(named: "basic")!
-                                break
+                            case "scattered clouds": fallthrough
                             case "broken clouds":
                                 weatherImage = UIImage(named: "cloud") ?? UIImage(named: "basic")!
+                                weatherDescription = "비가 올 것 같아요"
                                 break
                             case "shower rain": fallthrough
                             case "rain": fallthrough
                             case "thunderstorm":
                                 weatherImage = UIImage(named: "rain") ?? UIImage(named: "basic")!
+                                weatherDescription = "비가 와요"
                                 break
                             case "snow":
                                 weatherImage = UIImage(named: "snow") ?? UIImage(named: "basic")!
+                                weatherDescription = "눈이 와요"
                             default:
                                 weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
                         }
                         self.weatherImgView.image = weatherImage
+                        self.weatherLabel.text = weatherTemp
+                        self.weatherDescriptionLabel.text = weatherDescription
                     }
                 case .failure(_ ):
                     print("error")
@@ -129,6 +141,8 @@ class HomeVC: UIViewController {
            
         } else { // 없는 경우
             weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
+            self.weatherLabel.text = "날씨 없음"
+            self.weatherDescriptionLabel.text = "위치 권한 아이콘을 눌러 허용해 주세요."
         }
 
        

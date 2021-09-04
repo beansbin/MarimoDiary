@@ -57,6 +57,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
             diary.setValue(diaryInfo.date, forKey: "date")
             diary.setValue(diaryInfo.image.pngData(), forKey: "image")
             diary.setValue(diaryInfo.contents, forKey: "contents")
+            print(diary)
             
             do {
                 try context.save()

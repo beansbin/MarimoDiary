@@ -16,6 +16,7 @@ class ReadVC: UIViewController {
         super.viewDidLoad()
         
         // 데이터 로드하기
+        fetchContact()
         
     }
     
@@ -26,10 +27,9 @@ class ReadVC: UIViewController {
         do {
             let contact = try context.fetch(Diary.fetchRequest()) as! [Diary]
             contact.forEach {
-                let unencodedData = Data(base64Encoded: $0.image!)
-                let image = UIImage(data: unencodedData!)
-                let diary = DiaryInfo(date: $0.date!, image: image!, contents: $0.contents!)
+                let diary = DiaryInfo(date: $0.date!, image: UIImage(data: $0.image!, scale:1.0)!, contents: $0.contents!)
                 diaryArray.append(diary)
+                print(diaryArray)
                 
             }
         } catch {
@@ -60,6 +60,8 @@ class ReadVC: UIViewController {
 class CustomPagerCell : FSPagerViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dDayLabel: UILabel!
     
     
 }
@@ -68,14 +70,15 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
     
     // 셀 개수
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return 3
+        return diaryArray.count
     }
         
     // 각 셀 설정
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index) as! CustomPagerCell
-        cell.imgView?.image = UIImage(named : "basic")
-        cell.textField?.text = "text!"
+        cell.imgView?.image = diaryArray[index].image
+        cell.textField?.text = diaryArray[index].contents
+        cell.dateLabel.text = diaryArray[index].date
         
         return cell
     }

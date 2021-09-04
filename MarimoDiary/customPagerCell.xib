@@ -53,6 +53,8 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <connections>
+                <outlet property="dDayLabel" destination="bog-Iv-rIO" id="CxR-ZA-o70"/>
+                <outlet property="dateLabel" destination="kYJ-s7-f7G" id="i2E-lx-og7"/>
                 <outlet property="imgView" destination="8AF-Gj-SCU" id="IjR-JT-3Ec"/>
                 <outlet property="textField" destination="DFg-LL-agJ" id="SA0-mr-LaH"/>
             </connections>

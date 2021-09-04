@@ -54,10 +54,11 @@ class HomeVC: UIViewController {
             // date to string
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy.MM.dd"
-            let dateString: String = dateFormatter.string(from: tempDate)
+            let dateString: String = dateFormatter.string(from: Date())
+            let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
             
             // D+Day 구하기
-            let dDay = Int(Date().timeIntervalSince(tempDate)) / 86400 + 1
+            let dDay = Int(Date().timeIntervalSince(todayDate) / 86400 + 1)
 
             // 레이블에 표시
             self.nameLabel.text = tempName

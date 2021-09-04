@@ -28,14 +28,17 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         
         // date to string
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
         let dateString: String = dateFormatter.string(from: Date())
         let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
-        dateFormatter.dateFormat = "yyyy.MM.dd"
+        
         self.dateLabel.text = dateString
+        print(dateString)
         
         // D+Day 구하기
         let dDay = Int(Date().timeIntervalSince(todayDate)) / 86400 + 1
         self.dDayLabel.text = "D + " + String(dDay)
+        print(dDay)
        
     }
     

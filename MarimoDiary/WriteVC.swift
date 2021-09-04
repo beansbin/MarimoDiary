@@ -8,10 +8,11 @@
 import UIKit
 
 class WriteVC: UIViewController {
+    let picker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        picker.delegate = self
     }
     
     @IBAction func imageBtn(_ sender: Any) {
@@ -41,5 +42,14 @@ class WriteVC: UIViewController {
     }
 
 }
+
+extension ViewController : UIImagePickerControllerDelegate,
+
+UINavigationControllerDelegate {
+
+
+
+}
+
 
 

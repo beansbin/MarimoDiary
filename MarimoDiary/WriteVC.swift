@@ -12,28 +12,18 @@ import AVFoundation
 class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let picker = UIImagePickerController()
-    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var imgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoView))
+        imgView.isUserInteractionEnabled = true
+        imgView.addGestureRecognizer(tapGesture)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // 사진 권한 요청 (최초 요청)
-        PHPhotoLibrary.requestAuthorization { status in
-            return
-        }
-        
-        // 카메라 권한 요청 (최초 요청)
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
-            return
-        }
-        
-    }
-    
-    @IBAction func imageBtn(_ sender: Any) {
-
+    @objc func tapPhotoView() {
         let alert =  UIAlertController(title: "원하는 타이틀", message: "원하는 메세지", preferredStyle: .actionSheet)
 
         let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in
@@ -52,6 +42,19 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         alert.addAction(cancel)
 
         present(alert, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // 사진 권한 요청 (최초 요청)
+        PHPhotoLibrary.requestAuthorization { status in
+            return
+        }
+        
+        // 카메라 권한 요청 (최초 요청)
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            return
+        }
+        
     }
     
     func openLibrary() {
@@ -83,8 +86,9 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            imageButton.setBackgroundImage(image, for: .normal)
+            //imageButton.setBackgroundImage(image, for: .normal)
             //imageButton.setImage(image, for: .normal)
+            imgView.image = image
                    print("&&")
                 }
 

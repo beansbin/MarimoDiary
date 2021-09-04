@@ -263,21 +263,17 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOU-CB-a7f">
-                                <rect key="frame" x="45" y="174" width="324" height="190"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-hT-29e">
+                                <rect key="frame" x="45" y="179" width="324" height="207"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="사진을 선택해 주세요"/>
-                                <connections>
-                                    <action selector="imageBtn:" destination="QL7-BG-zDF" eventType="touchUpInside" id="9Hl-sM-xS5"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OAK-ix-xyU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="xsC-vh-AUa"/>
                     <connections>
-                        <outlet property="imageButton" destination="FOU-CB-a7f" id="b4v-8v-23B"/>
+                        <outlet property="imgView" destination="Ot0-hT-29e" id="QT5-kh-UdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdE-fq-WwU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

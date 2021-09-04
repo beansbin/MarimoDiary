@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C1F328A24F17DB25844DF43 /* Pods_MarimoDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB91F8C475D2FF7A63620B0 /* Pods_MarimoDiary.framework */; };
+		1531C13626E39E370035B45E /* DiaryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1531C13526E39E370035B45E /* DiaryInfo.swift */; };
 		154BE12126DB68AE00BBCD2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12026DB68AE00BBCD2B /* AppDelegate.swift */; };
 		154BE12326DB68AE00BBCD2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12226DB68AE00BBCD2B /* SceneDelegate.swift */; };
 		154BE12526DB68AE00BBCD2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12426DB68AE00BBCD2B /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1531C13526E39E370035B45E /* DiaryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryInfo.swift; sourceTree = "<group>"; };
 		154BE11D26DB68AE00BBCD2B /* MarimoDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarimoDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		154BE12026DB68AE00BBCD2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		154BE12226DB68AE00BBCD2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				154BE15426DB916D00BBCD2B /* MarimoInfo.swift */,
 				15C639C126E30C8E00D10A6C /* WeaterInfo.swift */,
+				1531C13526E39E370035B45E /* DiaryInfo.swift */,
 			);
 			path = DataTypes;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				15C639C226E30C8E00D10A6C /* WeaterInfo.swift in Sources */,
 				154BE15826DBA55C00BBCD2B /* DebugPrint.swift in Sources */,
 				154BE15B26DBA62A00BBCD2B /* Utils.swift in Sources */,
+				1531C13626E39E370035B45E /* DiaryInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

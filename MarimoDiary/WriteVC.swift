@@ -13,7 +13,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     let picker = UIImagePickerController()
     @IBOutlet weak var imgView: UIImageView!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -22,6 +22,11 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(tapGesture)
     }
+    
+    @IBAction func writeBtn(_ sender: Any) {
+        
+    }
+    
     
     @objc func tapPhotoView() {
         let alert =  UIAlertController(title: "원하는 타이틀", message: "원하는 메세지", preferredStyle: .actionSheet)
@@ -57,6 +62,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         
     }
     
+    // 사진첩 열기
     func openLibrary() {
         
         let photoAuthorization = PHPhotoLibrary.authorizationStatus()
@@ -68,10 +74,9 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         default:
             self.alert("설정에서 사진 권한을 허용해 주세요.")
         }
-       
-
     }
 
+    // 카메라 열기
     func openCamera(){
         let cameraAuthorization = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch cameraAuthorization {
@@ -84,6 +89,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         }
     }
     
+    // 사진 정해졌을 때 호출됨
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             //imageButton.setBackgroundImage(image, for: .normal)
@@ -93,7 +99,6 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
                 }
 
         dismiss(animated: true, completion: nil)
-
     }
 
     // 화면 터치해서 키보드 내리기

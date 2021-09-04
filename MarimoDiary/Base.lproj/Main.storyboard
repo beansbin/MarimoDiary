@@ -280,7 +280,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="xsC-vh-AUa"/>
                     <connections>
+                        <outlet property="dDayLabel" destination="Qsb-7x-1o3" id="7oA-ga-5ki"/>
+                        <outlet property="dateLabel" destination="Hdl-L5-aNu" id="GMU-Ww-LUn"/>
                         <outlet property="imgView" destination="Ot0-hT-29e" id="QT5-kh-UdR"/>
+                        <outlet property="textView" destination="2oQ-63-VCt" id="Nkl-Or-hZy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdE-fq-WwU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

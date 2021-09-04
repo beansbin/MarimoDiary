@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Diary" representedClassName="Diary" syncable="YES" codeGenerationType="class">
         <attribute name="contents" optional="YES" attributeType="String"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
     </entity>
     <entity name="Marimo" representedClassName="Marimo" syncable="YES" codeGenerationType="class">
@@ -11,6 +11,6 @@
     </entity>
     <elements>
         <element name="Marimo" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Diary" positionX="-63" positionY="0" width="128" height="88"/>
+        <element name="Diary" positionX="-54" positionY="9" width="128" height="88"/>
     </elements>
 </model>

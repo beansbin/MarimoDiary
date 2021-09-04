@@ -8,12 +8,16 @@
 import UIKit
 import PhotosUI
 import AVFoundation
+import CoreData
 
 class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let picker = UIImagePickerController()
     @IBOutlet weak var imgView: UIImageView!
-   
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dDayLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -21,10 +25,61 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoView))
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(tapGesture)
+        
+        // date to string
+        let dateFormatter = DateFormatter()
+        let dateString: String = dateFormatter.string(from: Date())
+        let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        self.dateLabel.text = dateString
+        
+        // D+Day 구하기
+        let dDay = Int(Date().timeIntervalSince(todayDate)) / 86400 + 1
+        self.dDayLabel.text = "D + " + String(dDay)
+       
     }
     
     @IBAction func writeBtn(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
         
+        let diaryInfo = DiaryInfo(date: self.dateLabel.text!,
+                                  image: (self.imgView.image ?? UIImage(named: "basic"))!,
+                              contents: self.textView.text)
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Diary", in: context)
+        
+        if let entity = entity {
+            let diary = NSManagedObject(entity: entity, insertInto: context)
+            diary.setValue(diaryInfo.date, forKey: "date")
+            diary.setValue(diaryInfo.image.pngData(), forKey: "image")
+            diary.setValue(diaryInfo.contents, forKey: "contents")
+            
+            do {
+                try context.save()
+                
+            } catch {
+                print(error.localizedDescription)
+                
+            }
+            
+            let alert = UIAlertController(title: "일기가 저장되었습니다.", message: "일기에서 확인할 수 있어요", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default) { action in
+                self.dismiss(animated: true)
+            })
+            self.present(alert, animated: true, completion: nil)
+
+           
+        }
+        
+        do {
+            try context.save()
+            
+        } catch {
+            print(error.localizedDescription)
+            
+        }
+
     }
     
     

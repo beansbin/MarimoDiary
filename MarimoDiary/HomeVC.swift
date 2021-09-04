@@ -7,20 +7,26 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var writeBtn: UIButton!
     @IBOutlet var readBtn: UIButton!
     @IBOutlet weak var dDayLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var locationManager: CLLocationManager? // 위치 관련 이벤트 전달
+    var currentLocation: CLLocationCoordinate2D! // 위도, 경도 알려줌
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         // 버튼 디자인
         designBtn()
+        
+        // 위치 권한 설정
+        requestAuthorization()
         
     }
     
@@ -74,6 +80,48 @@ class HomeVC: UIViewController {
         
     }
     
+    // 위치 권한 요청
+    private func requestAuthorization() {
+           if locationManager == nil {
+               locationManager = CLLocationManager()
+               //정확도를 검사한다.
+               locationManager!.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+               //앱을 사용할때 권한요청
+               locationManager!.requestWhenInUseAuthorization()
+               locationManager!.delegate = self
+               locationManagerDidChangeAuthorization(locationManager!)
+           }else{
+               //사용자의 위치가 바뀌고 있는지 확인하는 메소드
+               locationManager!.startMonitoringSignificantLocationChanges()
+           }
+       }
+    
+    // 위도, 경도 알아내기
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        var locationAuthorizationStatus : CLAuthorizationStatus
+        if #available(iOS 14.0, *) {
+            locationAuthorizationStatus = manager.authorizationStatus
+            
+        } else {
+            //Fallback on earlier versions
+            locationAuthorizationStatus = CLLocationManager.authorizationStatus()
+        }
+        
+        if locationAuthorizationStatus == .authorizedWhenInUse {
+           currentLocation = locationManager!.location?.coordinate
+           LocationService.shared.longitude = currentLocation.longitude
+           LocationService.shared.latitude = currentLocation.latitude
+        }
+    }
+    
+    class LocationService {
+        
+        static var shared = LocationService()
+        var longitude:Double!
+        var latitude:Double!
+      
+    }
+    
     // apiKey 접근하기
     private var apiKey: String {
         get {
@@ -93,6 +141,29 @@ class HomeVC: UIViewController {
         }
     }
 
+
+}
+
+
+class WeatherService {
+    // .plist에서 API Key 가져오기
+    private var apiKey: String {
+        get {
+            // 생성한 .plist 파일 경로 불러오기
+            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
+                fatalError("Couldn't find file 'KeyList.plist'.")
+            }
+            
+            // .plist를 딕셔너리로 받아오기
+            let plist = NSDictionary(contentsOfFile: filePath)
+            
+            // 딕셔너리에서 값 찾기
+            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
+                fatalError("Couldn't find key 'OPENWEATHERMAP_KEY' in 'KeyList.plist'.")
+            }
+            return value
+        }
+    }
 
 }
 

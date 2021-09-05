@@ -209,8 +209,11 @@
                     <connections>
                         <outlet property="dDayLabel" destination="3ur-YL-O3y" id="rfv-HH-zcr"/>
                         <outlet property="dateLabel" destination="rn2-4f-GHk" id="DHe-gL-eEU"/>
+                        <outlet property="foodTitle" destination="bL0-KP-Byl" id="yh3-Mk-Z5v"/>
                         <outlet property="nameLabel" destination="z2V-47-s0n" id="ZCl-M6-4d8"/>
                         <outlet property="readBtn" destination="OZp-fQ-wxb" id="EWx-Ys-sWj"/>
+                        <outlet property="waterBtn" destination="fPt-jB-fbl" id="ydm-bb-qzl"/>
+                        <outlet property="waterTitle" destination="GJu-4p-nh7" id="Rb4-tX-asR"/>
                         <outlet property="weatherDescriptionLabel" destination="SJ0-D1-ofh" id="Q3e-vb-qvL"/>
                         <outlet property="weatherImgView" destination="kda-Ue-F91" id="ZTg-xx-8JC"/>
                         <outlet property="weatherLabel" destination="FaG-XT-QT1" id="fRd-v4-2SC"/>

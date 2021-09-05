@@ -17,7 +17,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var dDayLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-
+    @IBOutlet weak var waterBtn: UIButton!
+    
+    @IBOutlet weak var foodTitle: UILabel!
+    @IBOutlet weak var waterTitle: UILabel!
     @IBOutlet weak var weatherImgView: UIImageView!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
@@ -146,27 +149,41 @@ class HomeVC: UIViewController {
             self.weatherDescriptionLabel.text = "위치 권한 아이콘을 눌러 허용해 주세요."
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("이얏호")
+    }
 
     @IBAction func waterBtn(_ sender: Any) {
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings { [self] (settings) in
+            if(settings.authorizationStatus == .authorized)
+            {
+                self.sendNotification(day: 14, type: "water")
+            }
+            else
+            {
+                self.alert("설정 > 알림 권한을 허용해 주세요.")
+            }
+        }
+        
+       
+        
+    }
+    @IBAction func foodBtn(_ sender: Any) {
         let center = UNUserNotificationCenter.current()
         
         center.getNotificationSettings { (settings) in
             if(settings.authorizationStatus == .authorized)
             {
-                print("Push authorized")
+                self.sendNotification(day: 14, type: "food")
             }
             else
             {
-                print("Push not authorized")
+                self.alert("설정 > 알림 권한을 허용해 주세요.")
             }
         }
-        
-        sendNotification(day: 14)
-        
-    }
-    @IBAction func foodBtn(_ sender: Any) {
-        requestNotificationAuthorization()
-        sendNotification(day: 14)
     }
     
     // 알림 권한 요청
@@ -181,7 +198,7 @@ class HomeVC: UIViewController {
     }
     
     // 로컬 푸시 설정하기
-    func sendNotification(day: Int) {
+    func sendNotification(day: Int, type: String) {
         let notificationContent = UNMutableNotificationContent()
 
         notificationContent.title = "알림 테스트"
@@ -192,24 +209,39 @@ class HomeVC: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd-hh"
         let day = DateComponents(day: day)
-        if let dDay = calendar.date(byAdding: day, to: now)
-        {
-            print(dateFormatter.string(from: dDay))
+        let dDay = calendar.date(byAdding: day, to: now)
+        print(dateFormatter.string(from: dDay!))
             
-            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour], from: dDay)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-            let request = UNNotificationRequest(identifier: "testNotification",
-                                                content: notificationContent,
-                                                trigger: trigger)
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour], from: dDay!)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: "testNotification",
+                                            content: notificationContent,
+                                            trigger: trigger)
 
-            userNotificationCenter.add(request) { error in
-                if let error = error {
-                    print("Notification Error: ", error)
-                }
+        userNotificationCenter.add(request) { error in
+            if let error = error {
+                print("Notification Error: ", error)
             }
-            
-            UserDefaults.standard.set(dDay, forKey: "waterDay")
         }
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //let day2 = dateFormatter(dDay)
+        print(day)
+        switch type {
+        case "water":
+            UserDefaults.standard.set(dDay, forKey: "waterDay")
+            self.alert("다음 물주기 날짜까지 \(day)일 남았어요.")
+            break
+        case "food":
+            UserDefaults.standard.set(dDay, forKey: "foodDay")
+            self.alert("다음 먹이 주기 날짜까지 \(day)일 남았어요.")
+            break
+        default:
+            print("default")
+        }
+        
+        
+        viewWillAppear(true)
     }
 }
 

@@ -20,7 +20,7 @@ class RegisterVC: UIViewController {
         
         registerBtn.layer.borderWidth = 1
         registerBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
-        registerBtn.layer.cornerRadius = 10
+        registerBtn.layer.cornerRadius = 13
     }
     
     // 등록하기 버튼을 눌렀을 때

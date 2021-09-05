@@ -146,7 +146,7 @@ class HomeVC: UIViewController {
 
     @IBAction func waterBtn(_ sender: Any) {
         requestNotificationAuthorization()
-        sendNotification(seconds: 10)
+        sendNotification(day: 7)
         
     }
     
@@ -162,24 +162,36 @@ class HomeVC: UIViewController {
     }
     
     // 로컬 푸시 설정하기
-    func sendNotification(seconds: Double) {
+    func sendNotification(day: Int) {
         let notificationContent = UNMutableNotificationContent()
 
         notificationContent.title = "알림 테스트"
         notificationContent.body = "이것은 알림을 테스트 하는 것이다"
+        
+        let now = Date()
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-hh"
+        let day = DateComponents(day: day)
+        if let dDay = calendar.date(byAdding: day, to: now)
+        {
+            print(dateFormatter.string(from: dDay))
+            
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour], from: dDay)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            let request = UNNotificationRequest(identifier: "testNotification",
+                                                content: notificationContent,
+                                                trigger: trigger)
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-        let request = UNNotificationRequest(identifier: "testNotification",
-                                            content: notificationContent,
-                                            trigger: trigger)
-
-        userNotificationCenter.add(request) { error in
-            if let error = error {
-                print("Notification Error: ", error)
+            userNotificationCenter.add(request) { error in
+                if let error = error {
+                    print("Notification Error: ", error)
+                }
             }
+            
+            UserDefaults.standard.set(dDay, forKey: "waterDay")
         }
     }
-    
 }
 
 

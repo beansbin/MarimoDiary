@@ -13,22 +13,21 @@ class ReadVC: UIViewController {
     var diaryArray: [DiaryInfo] = []
     @IBOutlet weak var pageSlider: UISlider!
     @IBOutlet weak var valueLabel: UILabel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 데이터 로드하기
+        fetchContact()
+    }
     
+    // 슬라이더 값 변경되면 호출됨
     @IBAction func changeSlider(_ sender: UISlider) {
         self.pageSlider.maximumValue = Float(diaryArray.count-1)
         self.pagerView.scrollToItem(at: Int(sender.value), animated: true)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        
-        // 데이터 로드하기
-        fetchContact()
-        
-       // self.pagerView.scrollToItem(at: 3, animated: false)
-    }
     
+    // 다이어리 데이터 가져오기
     func fetchContact() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -61,8 +60,6 @@ class ReadVC: UIViewController {
             // 스타일
             self.pagerView.transformer = FSPagerViewTransformer(type: .linear)
 
-            
-
         }
     }
     
@@ -94,6 +91,13 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
         
         return cell
     }
+    
+    public func pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {
+        self.pageSlider.maximumValue = Float(diaryArray.count-1)
+        self.pageSlider.value = Float(index)
+        print(pageSlider.value)
+    }
+    
 }
 
 class PageSlider: UISlider {

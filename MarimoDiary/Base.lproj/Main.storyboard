@@ -307,7 +307,7 @@
                                     <outlet property="delegate" destination="qXo-ZT-Nkv" id="UBQ-6E-Vcc"/>
                                 </connections>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWa-Ng-VcH">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWa-Ng-VcH">
                                 <rect key="frame" x="27" y="690" width="369" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>

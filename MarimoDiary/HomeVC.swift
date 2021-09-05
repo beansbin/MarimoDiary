@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import CoreLocation
 import Foundation
+import UserNotifications
 
 class HomeVC: UIViewController {
     @IBOutlet var writeBtn: UIButton!
@@ -21,17 +22,16 @@ class HomeVC: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     
-    
     var locationManager: CLLocationManager? // 위치 관련 이벤트 전달
     var currentLocation: CLLocationCoordinate2D! // 위도, 경도 알려줌
+    
+    let userNotificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 위치 권한 설정
         requestAuthorization()
-        
-      //  print(WeatherDataManager().setCurrentWeather(lati: Float(LocationService.shared.latitude), longi: Float(LocationService.shared.longitude), completion: <#()#>))
         
     }
     
@@ -142,12 +142,43 @@ class HomeVC: UIViewController {
             self.weatherLabel.text = "날씨 없음"
             self.weatherDescriptionLabel.text = "위치 권한 아이콘을 눌러 허용해 주세요."
         }
-
-       
-        
-        
     }
 
+    @IBAction func waterBtn(_ sender: Any) {
+        requestNotificationAuthorization()
+        sendNotification(seconds: 10)
+        
+    }
+    
+    // 알림 권한 요청
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+
+        userNotificationCenter.requestAuthorization(options: authOptions) { success, error in
+            if let error = error {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    // 로컬 푸시 설정하기
+    func sendNotification(seconds: Double) {
+        let notificationContent = UNMutableNotificationContent()
+
+        notificationContent.title = "알림 테스트"
+        notificationContent.body = "이것은 알림을 테스트 하는 것이다"
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+        let request = UNNotificationRequest(identifier: "testNotification",
+                                            content: notificationContent,
+                                            trigger: trigger)
+
+        userNotificationCenter.add(request) { error in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
     
 }
 

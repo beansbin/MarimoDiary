@@ -11,13 +11,22 @@ import CoreData
 
 class ReadVC: UIViewController {
     var diaryArray: [DiaryInfo] = []
+    @IBOutlet weak var pageSlider: UISlider!
+    @IBOutlet weak var valueLabel: UILabel!
+    
+    @IBAction func changeSlider(_ sender: UISlider) {
+        self.pageSlider.maximumValue = Float(diaryArray.count-1)
+        self.pagerView.scrollToItem(at: Int(sender.value), animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         // 데이터 로드하기
         fetchContact()
         
+       // self.pagerView.scrollToItem(at: 3, animated: false)
     }
     
     func fetchContact() {
@@ -29,7 +38,7 @@ class ReadVC: UIViewController {
             contact.forEach {
                 let diary = DiaryInfo(date: $0.date!, image: UIImage(data: $0.image!, scale:1.0)!, contents: $0.contents!)
                 diaryArray.append(diary)
-                print(diaryArray)
+                //print(diaryArray)
                 
             }
         } catch {
@@ -48,9 +57,11 @@ class ReadVC: UIViewController {
             // 무한 스크롤
             self.pagerView.isInfinite = true
             // 자동 스크롤
-            self.pagerView.automaticSlidingInterval = 4.0
+            self.pagerView.automaticSlidingInterval = 0
             // 스타일
             self.pagerView.transformer = FSPagerViewTransformer(type: .linear)
+
+            
 
         }
     }
@@ -70,6 +81,7 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
     
     // 셀 개수
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
+        print(diaryArray.count)
         return diaryArray.count
     }
         
@@ -82,6 +94,19 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
         
         return cell
     }
+}
+
+class PageSlider: UISlider {
+    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+            let width = self.frame.size.width
+            let tapPoint = touch.location(in: self)
+            let fPercent = tapPoint.x/width
+            let nNewValue = self.maximumValue * Float(fPercent)
+            if nNewValue != self.value {
+                self.value = nNewValue
+            }
+            return true
+        }
 }
 
 

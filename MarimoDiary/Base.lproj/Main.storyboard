@@ -191,6 +191,9 @@
                                                 <rect key="frame" x="5" y="8" width="60" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="food"/>
+                                                <connections>
+                                                    <action selector="foodBtn:" destination="Uef-F6-lIb" eventType="touchUpInside" id="lki-fv-ISc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

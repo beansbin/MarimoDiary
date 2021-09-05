@@ -33,6 +33,9 @@ class HomeVC: UIViewController {
         // 위치 권한 설정
         requestAuthorization()
         
+        // 알림 권한 설정
+        requestNotificationAuthorization()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -145,9 +148,25 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func waterBtn(_ sender: Any) {
-        requestNotificationAuthorization()
-        sendNotification(day: 7)
+        let center = UNUserNotificationCenter.current()
         
+        center.getNotificationSettings { (settings) in
+            if(settings.authorizationStatus == .authorized)
+            {
+                print("Push authorized")
+            }
+            else
+            {
+                print("Push not authorized")
+            }
+        }
+        
+        sendNotification(day: 14)
+        
+    }
+    @IBAction func foodBtn(_ sender: Any) {
+        requestNotificationAuthorization()
+        sendNotification(day: 14)
     }
     
     // 알림 권한 요청

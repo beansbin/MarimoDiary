@@ -124,6 +124,7 @@ class HomeVC: UIViewController {
                             case "moderate rain": fallthrough
                             case "shower rain": fallthrough
                             case "rain": fallthrough
+                        case "light rain": fallthrough
                             case "thunderstorm":
                                 weatherImage = UIImage(named: "rain") ?? UIImage(named: "basic")!
                                 weatherDescription = "비가 와요"

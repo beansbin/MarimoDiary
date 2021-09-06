@@ -22,6 +22,10 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         super.viewDidLoad()
         picker.delegate = self
         
+        textView.delegate = self
+        textView.text =  "일기 내용을 입력해주세요."
+        textView.textColor = UIColor.darkGray
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoView))
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(tapGesture)
@@ -166,6 +170,23 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         self.view.endEditing(true)
     }
 
+}
+
+// TextView 관련 코드
+extension WriteVC: UITextViewDelegate {
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    if textView.textColor == UIColor.lightGray {
+      textView.text = nil
+      textView.textColor = UIColor.black
+    }
+  }
+
+  func textViewDidEndEditing(_ textView: UITextView) {
+    if textView.text.isEmpty {
+      textView.text = "내용을 입력해주세요."
+      textView.textColor = UIColor.lightGray
+    }
+  }
 }
 
 

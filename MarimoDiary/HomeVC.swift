@@ -232,11 +232,11 @@ class HomeVC: UIViewController {
         switch type {
         case "water":
             UserDefaults.standard.set(dDay, forKey: "waterDay")
-            self.alert("다음 물주기 날짜까지 \(day.day)일 남았어요.")
+            self.alert("다음 물주기 날짜까지 \(day.day!)일 남았어요.")
             break
         case "food":
             UserDefaults.standard.set(dDay, forKey: "foodDay")
-            self.alert("다음 먹이 주기 날짜까지 \(day.day)일 남았어요.")
+            self.alert("다음 먹이 주기 날짜까지 \(day.day!)일 남았어요.")
             break
         default:
             print("default")

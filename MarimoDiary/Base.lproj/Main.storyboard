@@ -462,43 +462,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a8p-3Y-rZi" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="604"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8p-3Y-rZi" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qXo-ZT-Nkv" id="8MK-ah-Jar"/>
                                     <outlet property="delegate" destination="qXo-ZT-Nkv" id="UBQ-6E-Vcc"/>
                                 </connections>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWa-Ng-VcH">
-                                <rect key="frame" x="27" y="690" width="369" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWa-Ng-VcH">
+                                <rect key="frame" x="14" y="611" width="343" height="31"/>
                                 <connections>
                                     <action selector="changeSlider:" destination="qXo-ZT-Nkv" eventType="valueChanged" id="2EX-EC-Ior"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t75-0a-7iY">
-                                <rect key="frame" x="29" y="612" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="92R-l8-Kcu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a8p-3Y-rZi" firstAttribute="bottom" secondItem="KWa-Ng-VcH" secondAttribute="top" id="6lw-ND-FbL"/>
+                            <constraint firstItem="a8p-3Y-rZi" firstAttribute="leading" secondItem="92R-l8-Kcu" secondAttribute="leading" id="Ajk-j9-rMx"/>
+                            <constraint firstItem="a8p-3Y-rZi" firstAttribute="centerX" secondItem="92R-l8-Kcu" secondAttribute="centerX" id="N0T-39-rza"/>
+                            <constraint firstItem="a8p-3Y-rZi" firstAttribute="top" secondItem="92R-l8-Kcu" secondAttribute="top" id="b5F-03-Rqe"/>
+                            <constraint firstItem="KWa-Ng-VcH" firstAttribute="leading" secondItem="92R-l8-Kcu" secondAttribute="leading" constant="16" id="haR-Xj-c2t"/>
+                            <constraint firstItem="92R-l8-Kcu" firstAttribute="trailing" secondItem="a8p-3Y-rZi" secondAttribute="trailing" id="n0C-tq-qu3"/>
+                            <constraint firstItem="92R-l8-Kcu" firstAttribute="bottom" secondItem="KWa-Ng-VcH" secondAttribute="bottom" constant="6" id="rHx-hc-jlf"/>
+                            <constraint firstItem="92R-l8-Kcu" firstAttribute="trailing" secondItem="KWa-Ng-VcH" secondAttribute="trailing" constant="20" id="tp6-mT-eyL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ylb-vj-6WI"/>
                     <connections>
                         <outlet property="pageSlider" destination="KWa-Ng-VcH" id="6vm-ej-8dl"/>
                         <outlet property="pagerView" destination="a8p-3Y-rZi" id="Ux9-gF-lxi"/>
-                        <outlet property="valueLabel" destination="t75-0a-7iY" id="WUN-5X-bLI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plE-yy-utR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2853.6231884057975" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2853.5999999999999" y="91.304347826086968"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="AMk-WL-xeO">

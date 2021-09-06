@@ -12,7 +12,6 @@ import CoreData
 class ReadVC: UIViewController {
     var diaryArray: [DiaryInfo] = []
     @IBOutlet weak var pageSlider: UISlider!
-    @IBOutlet weak var valueLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

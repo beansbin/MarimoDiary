@@ -42,21 +42,16 @@ class HomeVC: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // 데이터 패치
         fetchData()
         
-        weatherImgView.animate(withGIFNamed: "loading") {
+        weatherImgView.animate(withGIFNamed: "loading", animationBlock:  {
             print("It's animating!")
-        }
-
-        
+        })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("이얏호")
-    }
-    
+    // 데이터 패치 함수
     func fetchData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -69,18 +64,16 @@ class HomeVC: UIViewController {
             marimo.forEach {
                 tempName = $0.name!
                 tempDate = $0.date!
-                // print(tempName)
-                // print(tempDate)
             } // 마지막에 저장된 것 보여줄 것임
             
-            // date to string
+            // 오늘 날짜 포맷 맞추기(date to string)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy.MM.dd"
             let dateString: String = dateFormatter.string(from: Date())
-            let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
             
             // D+Day 구하기
-            let dDay = Int(Date().timeIntervalSince(todayDate) / 86400 + 1)
+            let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
+            let dDay = Int(todayDate.timeIntervalSince(tempDate) / 86400 + 1)
 
             // 레이블에 표시
             self.nameLabel.text = tempName
@@ -119,18 +112,20 @@ class HomeVC: UIViewController {
                 case .success(let weatherResponse):
                     DispatchQueue.main.async {
                         weatherInfo.append(weatherResponse.weather.first!.description) // 날씨
-                        weatherInfo.append(String(weatherResponse.main.temp) + "°C") // 온도
+                        weatherInfo.append(String(weatherResponse.main.temp) + " °C") // 온도
                         weatherTemp = weatherInfo[1]
                         print(weatherTemp)
                         
                         let weather = weatherInfo[0]
                         print(weather)
                         switch weather {
-                            case "clear sky": fallthrough
-                            case "mist":
+                            case "clear sky":
                                 weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
                                 weatherDescription = "광합성하기 좋은 날이에요"
                                 break
+                            case "mist":
+                                weatherImage = UIImage(named: "cloud") ?? UIImage(named: "basic")!
+                                weatherDescription = "흐려요"
                             case "few clouds": fallthrough
                             case "scattered clouds": fallthrough
                             case "broken clouds":
@@ -140,7 +135,8 @@ class HomeVC: UIViewController {
                             case "moderate rain": fallthrough
                             case "shower rain": fallthrough
                             case "rain": fallthrough
-                        case "light rain": fallthrough
+                            case "drizzle": fallthrough
+                            case "light rain": fallthrough
                             case "thunderstorm":
                                 weatherImage = UIImage(named: "rain") ?? UIImage(named: "basic")!
                                 weatherDescription = "비가 와요"
@@ -183,10 +179,8 @@ class HomeVC: UIViewController {
                 self.alert("설정 > 알림 권한을 허용해 주세요.")
             }
         }
-        
-       
-        
     }
+    
     @IBAction func foodBtn(_ sender: Any) {
         let center = UNUserNotificationCenter.current()
         
@@ -303,8 +297,6 @@ extension HomeVC : CLLocationManagerDelegate {
         var longitude:Double!
         var latitude:Double!
     }
-
-
 }
 
 // 에러 정의

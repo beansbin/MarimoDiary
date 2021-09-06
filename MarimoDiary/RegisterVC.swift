@@ -25,20 +25,24 @@ class RegisterVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         // 텍스트필드 언더라인
-        
         let border = CALayer()
-        border.frame = CGRect(x: 0, y: name.frame.size.height-1, width: name.frame.width, height: 1)
-        border.backgroundColor = UIColor.lightGray.cgColor
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: name.frame.size.height - width, width:  name.frame.size.width, height: name.frame.size.height)
+
+        border.borderWidth = width
         name.layer.addSublayer(border)
-        name.textAlignment = .center
-        name.textColor = UIColor.white
+        name.layer.masksToBounds = true
         
         let border2 = CALayer()
-        border2.frame = CGRect(x: 0, y: name.frame.size.height-1, width: dateString.frame.width, height: 1)
-        border2.backgroundColor = UIColor.lightGray.cgColor
+        border2.borderColor = UIColor.lightGray.cgColor
+        border2.frame = CGRect(x: 0, y: dateString.frame.size.height - width, width:  dateString.frame.size.width, height: dateString.frame.size.height)
+
+        border2.borderWidth = width
         dateString.layer.addSublayer(border2)
-        dateString.textAlignment = .center
-        dateString.textColor = UIColor.white
+        dateString.layer.masksToBounds = true
+
+        
     }
     
     // 등록하기 버튼을 눌렀을 때
@@ -49,9 +53,9 @@ class RegisterVC: UIViewController {
         } else {
             // string to date
             let dateFormatter = DateFormatter()
-
             dateFormatter.dateFormat = "yyyyMMdd"
-            dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+            dateFormatter.locale = Locale(identifier: "ko_KR")
+            dateFormatter.timeZone = TimeZone(abbreviation: "KST")
 
             guard let date :Date = dateFormatter.date(from: self.dateString.text!) else {
                 self.alert("날짜를 다시 입력해주세요")
@@ -61,8 +65,11 @@ class RegisterVC: UIViewController {
             // 오늘 날짜의 시간을 0으로 바꾸는 작업
             let dateString: String = dateFormatter.string(from: Date())
             let todayDate: Date = dateFormatter.date(from:dateString)!
+            print(Date())
+            print(dateString)
+            print(todayDate)
+            print(date)
 
-            
             if (Int(todayDate.timeIntervalSince(date)) / 86400)  < 0 {
                 self.alert("날짜를 다시 입력해주세요")
                 return

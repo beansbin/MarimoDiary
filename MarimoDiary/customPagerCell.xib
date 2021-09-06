@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,14 +16,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T99-dG-54z">
-                    <rect key="frame" x="25" y="369" width="325" height="278"/>
+                    <rect key="frame" x="25" y="401" width="325" height="246"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Uq-Op-LJP">
+                    <rect key="frame" x="25" y="118" width="325" height="242"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="242" id="d7q-7x-mb6"/>
+                    </constraints>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDX-IH-Yz6">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="D + 345" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cT-ek-lic">
                             <rect key="frame" x="22" y="55" width="105" height="35"/>
@@ -43,42 +48,24 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Uq-Op-LJP">
-                    <rect key="frame" x="25" y="127" width="325" height="242"/>
-                    <color key="backgroundColor" name="AccentColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="242" id="d7q-7x-mb6"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 수정, 삭제가 불가능해요!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1l-1q-8hA">
-                    <rect key="frame" x="208" y="106" width="142" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="zQ3-bW-zBu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="T99-dG-54z" secondAttribute="bottom" constant="20" id="5VO-I3-nec"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Uq-Op-LJP" secondAttribute="trailing" constant="25" id="6q0-Eh-d4D"/>
+                <constraint firstAttribute="bottom" secondItem="fDX-IH-Yz6" secondAttribute="bottom" constant="557" id="7wO-vO-ALp"/>
                 <constraint firstItem="8Uq-Op-LJP" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="AZX-HB-VCG"/>
                 <constraint firstItem="fDX-IH-Yz6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="BrB-0C-n0Y"/>
-                <constraint firstItem="o1l-1q-8hA" firstAttribute="trailing" secondItem="8Uq-Op-LJP" secondAttribute="trailing" id="CE8-oR-cau"/>
-                <constraint firstItem="o1l-1q-8hA" firstAttribute="top" secondItem="fDX-IH-Yz6" secondAttribute="bottom" id="Jgg-ur-CAj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="T99-dG-54z" secondAttribute="trailing" constant="25" id="Kop-Vg-HK2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fDX-IH-Yz6" secondAttribute="trailing" id="MOP-A3-YEK"/>
                 <constraint firstItem="fDX-IH-Yz6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="OKP-Tg-r4m"/>
-                <constraint firstItem="T99-dG-54z" firstAttribute="top" secondItem="8Uq-Op-LJP" secondAttribute="bottom" id="SdR-o8-RIc"/>
-                <constraint firstItem="o1l-1q-8hA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="106" id="V3o-Yt-GXy"/>
+                <constraint firstItem="T99-dG-54z" firstAttribute="top" secondItem="8Uq-Op-LJP" secondAttribute="bottom" constant="41" id="SdR-o8-RIc"/>
                 <constraint firstItem="T99-dG-54z" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="YUC-AR-eZu"/>
                 <constraint firstItem="8Uq-Op-LJP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="dts-KH-IDp"/>
-                <constraint firstItem="8Uq-Op-LJP" firstAttribute="top" secondItem="o1l-1q-8hA" secondAttribute="bottom" id="qhq-ZM-f7D"/>
                 <constraint firstItem="fDX-IH-Yz6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uKq-Na-BzR"/>
                 <constraint firstItem="T99-dG-54z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="vfO-vI-tTz"/>
+                <constraint firstItem="8Uq-Op-LJP" firstAttribute="top" secondItem="fDX-IH-Yz6" secondAttribute="bottom" constant="8" id="yKg-s7-55d"/>
             </constraints>
             <connections>
                 <outlet property="dDayLabel" destination="1cT-ek-lic" id="wU7-nX-FWp"/>
@@ -86,13 +73,10 @@
                 <outlet property="imgView" destination="8Uq-Op-LJP" id="A8q-I9-nyg"/>
                 <outlet property="textField" destination="T99-dG-54z" id="4lA-aW-edO"/>
             </connections>
-            <point key="canvasLocation" x="104.8" y="107.49625187406298"/>
+            <point key="canvasLocation" x="103.2" y="106.59670164917542"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.31372549019607843" green="0.54117647058823526" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

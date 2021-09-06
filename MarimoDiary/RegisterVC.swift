@@ -23,6 +23,24 @@ class RegisterVC: UIViewController {
         registerBtn.layer.cornerRadius = 13
     }
     
+    override func viewDidLayoutSubviews() {
+        // 텍스트필드 언더라인
+        
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: name.frame.size.height-1, width: name.frame.width, height: 1)
+        border.backgroundColor = UIColor.lightGray.cgColor
+        name.layer.addSublayer(border)
+        name.textAlignment = .center
+        name.textColor = UIColor.white
+        
+        let border2 = CALayer()
+        border2.frame = CGRect(x: 0, y: name.frame.size.height-1, width: dateString.frame.width, height: 1)
+        border2.backgroundColor = UIColor.lightGray.cgColor
+        dateString.layer.addSublayer(border2)
+        dateString.textAlignment = .center
+        dateString.textColor = UIColor.white
+    }
+    
     // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
         

@@ -42,6 +42,16 @@ class HomeVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // 데이터 패치
+        fetchData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("이얏호")
+    }
+    
+    func fetchData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -150,10 +160,7 @@ class HomeVC: UIViewController {
             self.weatherLabel.text = "날씨 없음"
             self.weatherDescriptionLabel.text = "위치 권한 아이콘을 눌러 허용해 주세요."
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("이얏호")
+        
     }
 
     @IBAction func waterBtn(_ sender: Any) {

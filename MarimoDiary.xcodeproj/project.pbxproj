@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C1F328A24F17DB25844DF43 /* Pods_MarimoDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB91F8C475D2FF7A63620B0 /* Pods_MarimoDiary.framework */; };
+		15274A1326E6BB790043D4BC /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 15274A1226E6BB790043D4BC /* loading.gif */; };
 		1531C13626E39E370035B45E /* DiaryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1531C13526E39E370035B45E /* DiaryInfo.swift */; };
 		154BE12126DB68AE00BBCD2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12026DB68AE00BBCD2B /* AppDelegate.swift */; };
 		154BE12326DB68AE00BBCD2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BE12226DB68AE00BBCD2B /* SceneDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15274A1226E6BB790043D4BC /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		1531C13526E39E370035B45E /* DiaryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryInfo.swift; sourceTree = "<group>"; };
 		154BE11D26DB68AE00BBCD2B /* MarimoDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarimoDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		154BE12026DB68AE00BBCD2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				154BE14F26DB8FC700BBCD2B /* DataTypes */,
 				154BE12026DB68AE00BBCD2B /* AppDelegate.swift */,
+				15274A1226E6BB790043D4BC /* loading.gif */,
 				154BE12226DB68AE00BBCD2B /* SceneDelegate.swift */,
 				154BE12426DB68AE00BBCD2B /* ViewController.swift */,
 				154BE12626DB68AE00BBCD2B /* Main.storyboard */,
@@ -200,6 +203,7 @@
 				154BE13026DB68B000BBCD2B /* LaunchScreen.storyboard in Resources */,
 				15C639BF26E3097B00D10A6C /* KeyList.plist in Resources */,
 				154BE12D26DB68B000BBCD2B /* Assets.xcassets in Resources */,
+				15274A1326E6BB790043D4BC /* loading.gif in Resources */,
 				154BE14D26DB8C0100BBCD2B /* customPagerCell.xib in Resources */,
 				154BE12826DB68AE00BBCD2B /* Main.storyboard in Resources */,
 			);

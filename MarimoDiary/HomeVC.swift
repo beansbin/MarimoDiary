@@ -10,6 +10,7 @@ import CoreData
 import CoreLocation
 import Foundation
 import UserNotifications
+import Gifu
 
 class HomeVC: UIViewController {
     @IBOutlet var writeBtn: UIButton!
@@ -21,7 +22,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var foodTitle: UILabel!
     @IBOutlet weak var waterTitle: UILabel!
-    @IBOutlet weak var weatherImgView: UIImageView!
+    @IBOutlet weak var weatherImgView: GIFImageView!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     
@@ -44,6 +45,11 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // 데이터 패치
         fetchData()
+        
+        weatherImgView.animate(withGIFNamed: "loading") {
+            print("It's animating!")
+        }
+
         
     }
     
@@ -145,6 +151,7 @@ class HomeVC: UIViewController {
                             default:
                                 weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
                         }
+                        self.weatherImgView.stopAnimatingGIF()
                         self.weatherImgView.image = weatherImage
                         self.weatherLabel.text = weatherTemp
                         self.weatherDescriptionLabel.text = weatherDescription

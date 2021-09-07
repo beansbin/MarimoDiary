@@ -46,15 +46,21 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // 데이터 패치
-        fetchData()
+        OperationQueue.main.addOperation {
+            self.fetchData()
+        }
         
-        weatherImgView.animate(withGIFNamed: "loading", animationBlock:  {
-            print("It's animating!")
-        })
+        DispatchQueue.main.async {
+            self.weatherImgView.animate(withGIFNamed: "loading", animationBlock:  {
+                print("It's animating!")
+            })
+        }
+     
     }
     
     // 데이터 패치 함수
     func fetchData() {
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -81,10 +87,12 @@ class HomeVC: UIViewController {
             let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
             let dDay = Int(todayDate.timeIntervalSince(tempDate) / 86400 + 1)
 
-            // 레이블에 표시
-            self.nameLabel.text = tempName
-            self.dateLabel.text = dateString
-            self.dDayLabel.text = "D + " + String(dDay)
+       
+            
+              // 레이블에 표시
+              self.nameLabel.text = tempName
+              self.dateLabel.text = dateString
+              self.dDayLabel.text = "D + " + String(dDay)
             
             
         } catch {
@@ -251,7 +259,7 @@ class HomeVC: UIViewController {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         //let day2 = dateFormatter(dDay)
-        print(day)
+        print(dDay)
         switch type {
         case "water":
             UserDefaults.standard.set(dDay, forKey: "waterDay")
@@ -264,7 +272,6 @@ class HomeVC: UIViewController {
         default:
             print("default")
         }
-        
         
         viewWillAppear(true)
     }

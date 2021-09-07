@@ -94,7 +94,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     
     @objc func tapPhotoView() {
-        let alert =  UIAlertController(title: "원하는 타이틀", message: "원하는 메세지", preferredStyle: .actionSheet)
+        let alert =  UIAlertController(title: "사진 선택", message: "사진을 선택하거나 촬영해주세요.", preferredStyle: .actionSheet)
 
         let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in
             self.openLibrary()
@@ -127,11 +127,8 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         
     }
     
-   
-    
     // 사진첩 열기
     func openLibrary() {
-        
         let photoAuthorization = PHPhotoLibrary.authorizationStatus()
         switch photoAuthorization {
         case .authorized:

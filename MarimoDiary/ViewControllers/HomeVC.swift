@@ -380,7 +380,6 @@ class WeatherService {
         }
     }
     
-    
     func getWeather(lati: Float, longi: Float, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
             let baseURL: String = "https://api.openweathermap.org/data/2.5/weather?"
             let appid: String = "&APPID="

@@ -46,6 +46,25 @@ class ReadVC: UIViewController {
         
     }
     
+    // 사진 돌아가는 오류 보정하는 함수
+    func fixOrientation(img: UIImage) -> UIImage {
+        if (img.imageOrientation == .up) {
+            return img
+        }
+
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+
+        img.draw(in: rect)
+
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+
+        UIGraphicsEndImageContext()
+
+        return normalizedImage
+    }
+    
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             // 페이저뷰에 셀 등록
@@ -84,7 +103,7 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
     // 각 셀 설정
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index) as! CustomPagerCell
-        cell.imgView?.image = diaryArray[index].image
+        cell.imgView?.image = fixOrientation(img: diaryArray[index].image)
         cell.textField?.text = diaryArray[index].contents
         cell.dateLabel.text = diaryArray[index].date
         

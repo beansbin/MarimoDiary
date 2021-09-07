@@ -127,6 +127,8 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         
     }
     
+   
+    
     // 사진첩 열기
     func openLibrary() {
         

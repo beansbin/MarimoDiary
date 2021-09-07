@@ -137,7 +137,7 @@ class HomeVC: UIViewController {
                             case "Sand": fallthrough
                             case "Ash": fallthrough
                             case "Squall": fallthrough
-                            case "Tornado": fallthrough
+                            case "Tornado":
                                 weatherImage = UIImage(named: "cloud") ?? UIImage(named: "basic")!
                                 weatherDescription = "흐려요"
                             case "Clouds":

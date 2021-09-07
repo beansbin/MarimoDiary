@@ -186,7 +186,7 @@
                                                 <rect key="frame" x="5" y="8" width="60" height="60"/>
                                                 <state key="normal" backgroundImage="write"/>
                                                 <connections>
-                                                    <segue destination="QL7-BG-zDF" kind="presentation" id="7fX-5Y-FRy"/>
+                                                    <action selector="writeBtn:" destination="Uef-F6-lIb" eventType="touchUpInside" id="ulc-mm-og5"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일기 쓰기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqF-GV-qb2">
@@ -348,13 +348,13 @@
         <!--WriteVC-->
         <scene sceneID="xYt-JR-lJq">
             <objects>
-                <viewController id="QL7-BG-zDF" customClass="WriteVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteVC" id="QL7-BG-zDF" customClass="WriteVC" customModule="MarimoDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2YS-u7-FLV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2oQ-63-VCt">
-                                <rect key="frame" x="25" y="434" width="364" height="292"/>
+                                <rect key="frame" x="25" y="488" width="364" height="292"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="292" id="4Cq-5Q-TTJ"/>
@@ -367,7 +367,7 @@
                                 </connections>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1Y-Ye-Q08">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="98.333333333333329"/>
+                                <rect key="frame" x="0.0" y="43.999999999999993" width="414" height="98.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D + 345" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpX-Hc-6Cm">
                                         <rect key="frame" x="22" y="55" width="105" height="35.333333333333343"/>
@@ -395,10 +395,10 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-hT-29e">
-                                <rect key="frame" x="25" y="98.333333333333343" width="364" height="327.66666666666663"/>
+                                <rect key="frame" x="25" y="142.33333333333334" width="364" height="337.66666666666663"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u87-IY-PBd">
-                                <rect key="frame" x="0.0" y="757" width="414" height="85"/>
+                                <rect key="frame" x="0.0" y="811" width="414" height="85"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="Guy-eX-gdq"/>

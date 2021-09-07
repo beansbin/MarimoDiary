@@ -18,6 +18,8 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     @IBOutlet weak var dDayLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
+    var tempDate: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -29,21 +31,25 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoView))
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(tapGesture)
-        
-        // date to string
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 오늘 날짜 포맷 맞추기(date to string)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+
         let dateString: String = dateFormatter.string(from: Date())
-        let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
-        
         self.dateLabel.text = dateString
-        print(dateString)
         
         // D+Day 구하기
-        let dDay = Int(Date().timeIntervalSince(todayDate)) / 86400 + 1
+        let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
+        print(todayDate)
+        let realDate: Date = dateFormatter.date(from: tempDate)!
+        let dDay = Int(todayDate.timeIntervalSince(realDate) / 86400 + 1)
         self.dDayLabel.text = "D + " + String(dDay)
-        print(dDay)
-       
+
     }
     
     @IBAction func writeBtn(_ sender: Any) {

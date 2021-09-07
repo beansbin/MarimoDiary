@@ -31,6 +31,8 @@ class HomeVC: UIViewController {
     
     let userNotificationCenter = UNUserNotificationCenter.current()
     
+    var firstDay: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +71,11 @@ class HomeVC: UIViewController {
             // 오늘 날짜 포맷 맞추기(date to string)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy.MM.dd"
+            dateFormatter.locale = Locale(identifier: "ko_KR")
+            dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+
             let dateString: String = dateFormatter.string(from: Date())
+            self.firstDay = dateFormatter.string(from:tempDate)
             
             // D+Day 구하기
             let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
@@ -165,7 +171,13 @@ class HomeVC: UIViewController {
         }
         
     }
-
+    
+    @IBAction func writeBtn(_ sender: Any) {
+        let viewController = (self.storyboard?.instantiateViewController(identifier: "WriteVC"))! as WriteVC
+        viewController.tempDate = self.firstDay
+        present(viewController, animated: true)
+}
+    
     @IBAction func waterBtn(_ sender: Any) {
         let center = UNUserNotificationCenter.current()
         

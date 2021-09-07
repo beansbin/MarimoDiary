@@ -53,46 +53,42 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     }
     
     @IBAction func writeBtn(_ sender: Any) {
+    
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let diaryInfo = DiaryInfo(date: self.dateLabel.text!,
-                                  image: (self.imgView.image ?? UIImage(named: "basic"))!,
-                              contents: self.textView.text)
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Diary", in: context)
-        
-        if let entity = entity {
-            let diary = NSManagedObject(entity: entity, insertInto: context)
-            diary.setValue(diaryInfo.date, forKey: "date")
-            diary.setValue(diaryInfo.image.pngData(), forKey: "image")
-            diary.setValue(diaryInfo.contents, forKey: "contents")
-            print(diary)
+        let alert = UIAlertController(title: "저장할까요?", message: "기록된 일기는 아직 수정할 수 없어요. 기록할까요?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "기록", style: .default) { action in
             
-            do {
-                try context.save()
+            let diaryInfo = DiaryInfo(date: self.dateLabel.text!,
+                                      image: (self.imgView.image ?? UIImage(named: "basic"))!,
+                                  contents: self.textView.text)
+            
+            let entity = NSEntityDescription.entity(forEntityName: "Diary", in: context)
+            
+            if let entity = entity {
+                let diary = NSManagedObject(entity: entity, insertInto: context)
+                diary.setValue(diaryInfo.date, forKey: "date")
+                diary.setValue(diaryInfo.image.pngData(), forKey: "image")
+                diary.setValue(diaryInfo.contents, forKey: "contents")
+                print(diary)
                 
-            } catch {
-                print(error.localizedDescription)
-                
+                do {
+                    try context.save()
+                    
+                } catch {
+                    print(error.localizedDescription)
+                    
+                }
+               
             }
-            
-            let alert = UIAlertController(title: "일기가 저장되었습니다.", message: "일기에서 확인할 수 있어요", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default) { action in
-                self.dismiss(animated: true)
-            })
-            self.present(alert, animated: true, completion: nil)
+            self.dismiss(animated: true)
+        })
+        alert.addAction(UIAlertAction(title: "취소", style: .default) { action in
+            //self.dismiss(animated: true)
+        })
+        self.present(alert, animated: true, completion: nil)
 
-           
-        }
-        
-        do {
-            try context.save()
-            
-        } catch {
-            print(error.localizedDescription)
-            
-        }
 
     }
     

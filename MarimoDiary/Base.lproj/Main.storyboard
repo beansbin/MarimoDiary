@@ -168,7 +168,7 @@
                                                     <action selector="waterBtn:" destination="Uef-F6-lIb" eventType="touchUpInside" id="VcL-F6-ieY"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJu-4p-nh7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12일 후" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJu-4p-nh7">
                                                 <rect key="frame" x="0.0" y="75" width="70" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="9H7-ib-Ieb"/>
@@ -232,7 +232,7 @@
                                                     <action selector="foodBtn:" destination="Uef-F6-lIb" eventType="touchUpInside" id="lki-fv-ISc"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-KP-Byl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12일 후" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-KP-Byl">
                                                 <rect key="frame" x="0.0" y="75" width="70" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Qpq-sh-JMm"/>
@@ -399,6 +399,13 @@
                                     <action selector="writeBtn:" destination="QL7-BG-zDF" eventType="touchUpInside" id="e3G-20-Cj6"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zSq-UO-LX1">
+                                <rect key="frame" x="25" y="342" width="325" height="237"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OAK-ix-xyU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -410,8 +417,12 @@
                             <constraint firstItem="u87-IY-PBd" firstAttribute="leading" secondItem="OAK-ix-xyU" secondAttribute="leading" id="Mxv-A3-hzH"/>
                             <constraint firstItem="Ot0-hT-29e" firstAttribute="leading" secondItem="OAK-ix-xyU" secondAttribute="leading" constant="25" id="NdX-2L-Eln"/>
                             <constraint firstItem="L1Y-Ye-Q08" firstAttribute="top" secondItem="OAK-ix-xyU" secondAttribute="top" id="do3-wC-m8p"/>
+                            <constraint firstItem="u87-IY-PBd" firstAttribute="top" secondItem="zSq-UO-LX1" secondAttribute="bottom" constant="37" id="edp-dL-Ou8"/>
                             <constraint firstItem="Ot0-hT-29e" firstAttribute="top" secondItem="L1Y-Ye-Q08" secondAttribute="bottom" id="gpn-SJ-Hkx"/>
                             <constraint firstItem="L1Y-Ye-Q08" firstAttribute="leading" secondItem="u87-IY-PBd" secondAttribute="leading" id="rve-00-7Sq"/>
+                            <constraint firstItem="zSq-UO-LX1" firstAttribute="top" secondItem="Ot0-hT-29e" secondAttribute="bottom" constant="30" id="sG2-v5-9la"/>
+                            <constraint firstItem="zSq-UO-LX1" firstAttribute="leading" secondItem="Ot0-hT-29e" secondAttribute="leading" id="v4N-sf-dSU"/>
+                            <constraint firstItem="zSq-UO-LX1" firstAttribute="trailing" secondItem="Ot0-hT-29e" secondAttribute="trailing" id="vRf-9o-SoE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xsC-vh-AUa"/>
@@ -419,11 +430,12 @@
                         <outlet property="dDayLabel" destination="rpX-Hc-6Cm" id="EUn-gC-Lwe"/>
                         <outlet property="dateLabel" destination="WsK-aT-Pa0" id="Yve-bP-vTE"/>
                         <outlet property="imgView" destination="Ot0-hT-29e" id="QT5-kh-UdR"/>
+                        <outlet property="textView" destination="zSq-UO-LX1" id="Tna-Zg-4ib"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdE-fq-WwU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2165.217391304348" y="90.401785714285708"/>
+            <point key="canvasLocation" x="2164" y="89.505247376311857"/>
         </scene>
         <!--ReadVC-->
         <scene sceneID="h1n-Uc-ZIl">
@@ -568,6 +580,9 @@
         <namedColor name="AccentColor">
             <color red="0.31372549019607843" green="0.54117647058823526" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

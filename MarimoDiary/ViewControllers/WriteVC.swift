@@ -34,6 +34,8 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.addKeyboardNotifications()
+        
         // 오늘 날짜 포맷 맞추기(date to string)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -51,6 +53,11 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         self.dDayLabel.text = "D + " + String(dDay)
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications()
+        
+    }
+
     
     @IBAction func writeBtn(_ sender: Any) {
     

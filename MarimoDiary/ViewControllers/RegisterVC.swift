@@ -45,6 +45,16 @@ class RegisterVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) { self.addKeyboardNotifications()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications()
+        
+    }
+
+
+    
     // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
         

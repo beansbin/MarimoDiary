@@ -117,7 +117,7 @@ class HomeVC: UIViewController {
                 switch result {
                 case .success(let weatherResponse):
                     DispatchQueue.main.async {
-                        weatherInfo.append(weatherResponse.weather.first!.description) // 날씨
+                        weatherInfo.append(weatherResponse.weather.first!.main) // 날씨
                         weatherInfo.append(String(weatherResponse.main.temp) + " °C") // 온도
                         weatherTemp = weatherInfo[1]
                         print(weatherTemp)
@@ -125,29 +125,32 @@ class HomeVC: UIViewController {
                         let weather = weatherInfo[0]
                         print(weather)
                         switch weather {
-                            case "clear sky":
+                            case "Clear":
                                 weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
                                 weatherDescription = "광합성하기 좋은 날이에요"
                                 break
-                            case "mist":
+                            case "Mist": fallthrough
+                            case "Smoke": fallthrough
+                            case "Haze": fallthrough
+                            case "Dust": fallthrough
+                            case "Fog": fallthrough
+                            case "Sand": fallthrough
+                            case "Ash": fallthrough
+                            case "Squall": fallthrough
+                            case "Tornado": fallthrough
                                 weatherImage = UIImage(named: "cloud") ?? UIImage(named: "basic")!
                                 weatherDescription = "흐려요"
-                            case "few clouds": fallthrough
-                            case "scattered clouds": fallthrough
-                            case "broken clouds":
+                            case "Clouds":
                                 weatherImage = UIImage(named: "cloud") ?? UIImage(named: "basic")!
                                 weatherDescription = "비가 올 것 같아요"
                                 break
-                            case "moderate rain": fallthrough
-                            case "shower rain": fallthrough
-                            case "rain": fallthrough
-                            case "drizzle": fallthrough
-                            case "light rain": fallthrough
-                            case "thunderstorm":
+                            case "Rain": fallthrough
+                            case "Drizzle": fallthrough
+                            case "Thunderstorm":
                                 weatherImage = UIImage(named: "rain") ?? UIImage(named: "basic")!
                                 weatherDescription = "비가 와요"
                                 break
-                            case "snow":
+                            case "Snow":
                                 weatherImage = UIImage(named: "snow") ?? UIImage(named: "basic")!
                                 weatherDescription = "눈이 와요"
                             default:

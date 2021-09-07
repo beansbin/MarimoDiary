@@ -70,6 +70,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15274A6126E78EA40043D4BC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				154BE13826DB695600BBCD2B /* SplashVC.swift */,
+				154BE13B26DB699200BBCD2B /* HomeVC.swift */,
+				154BE13E26DB69BE00BBCD2B /* WriteVC.swift */,
+				154BE14126DB69E100BBCD2B /* ReadVC.swift */,
+				154BE14426DB6A1700BBCD2B /* RegisterVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		154BE11426DB68AE00BBCD2B = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +103,7 @@
 		154BE11F26DB68AE00BBCD2B /* MarimoDiary */ = {
 			isa = PBXGroup;
 			children = (
+				15274A6126E78EA40043D4BC /* ViewControllers */,
 				154BE14F26DB8FC700BBCD2B /* DataTypes */,
 				154BE12026DB68AE00BBCD2B /* AppDelegate.swift */,
 				15274A1226E6BB790043D4BC /* loading.gif */,
@@ -101,11 +114,6 @@
 				154BE12E26DB68B000BBCD2B /* LaunchScreen.storyboard */,
 				154BE13126DB68B000BBCD2B /* Info.plist */,
 				154BE12926DB68AE00BBCD2B /* MarimoDiary.xcdatamodeld */,
-				154BE13826DB695600BBCD2B /* SplashVC.swift */,
-				154BE13B26DB699200BBCD2B /* HomeVC.swift */,
-				154BE13E26DB69BE00BBCD2B /* WriteVC.swift */,
-				154BE14126DB69E100BBCD2B /* ReadVC.swift */,
-				154BE14426DB6A1700BBCD2B /* RegisterVC.swift */,
 				154BE14C26DB8C0100BBCD2B /* customPagerCell.xib */,
 				154BE15726DBA55C00BBCD2B /* DebugPrint.swift */,
 				154BE15A26DBA62A00BBCD2B /* Utils.swift */,

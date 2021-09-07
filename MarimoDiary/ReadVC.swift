@@ -88,13 +88,25 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
         cell.textField?.text = diaryArray[index].contents
         cell.dateLabel.text = diaryArray[index].date
         
+        // dDay 구하기
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.locale = Locale(identifier: Locale.current.identifier)
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        
+        let dateString: String = dateFormatter.string(from: Date())
+        let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
+        let realDate: Date = dateFormatter.date(from:cell.dateLabel.text!)!
+        let dDay = Int(todayDate.timeIntervalSince(realDate) / 86400 + 1)
+        cell.dDayLabel.text = "D + " + String(dDay)
+
+        
         return cell
     }
     
     public func pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {
         self.pageSlider.maximumValue = Float(diaryArray.count-1)
         self.pageSlider.value = Float(index)
-        print(pageSlider.value)
     }
     
 }

@@ -168,7 +168,7 @@
                                                     <action selector="waterBtn:" destination="Uef-F6-lIb" eventType="touchUpInside" id="VcL-F6-ieY"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12일 후" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJu-4p-nh7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJu-4p-nh7">
                                                 <rect key="frame" x="0.0" y="75" width="70" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="9H7-ib-Ieb"/>
@@ -232,7 +232,7 @@
                                                     <action selector="foodBtn:" destination="Uef-F6-lIb" eventType="touchUpInside" id="lki-fv-ISc"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12일 후" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-KP-Byl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-KP-Byl">
                                                 <rect key="frame" x="0.0" y="75" width="70" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Qpq-sh-JMm"/>

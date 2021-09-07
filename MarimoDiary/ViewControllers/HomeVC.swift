@@ -55,6 +55,8 @@ class HomeVC: UIViewController {
                 print("It's animating!")
             })
         }
+        
+        
      
     }
     
@@ -86,8 +88,34 @@ class HomeVC: UIViewController {
             // D+Day 구하기
             let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
             let dDay = Int(todayDate.timeIntervalSince(tempDate) / 86400 + 1)
-
-       
+            
+            // 물주기, 먹이 주기 날짜
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            if UserDefaults.standard.string(forKey: "waterDay") != nil {
+                let waterDate = dateFormatter.date(from: UserDefaults.standard.string(forKey: "waterDay")!)!
+                let dWaterDate = Int(waterDate.timeIntervalSince(todayDate) / 86400)
+        
+                if dWaterDate == 0 {
+                    self.waterTitle.text = "오늘"
+                } else if dWaterDate < 0 {
+                    self.waterTitle.text = "필요!"
+                } else {
+                    self.waterTitle.text = String(dWaterDate) + "일 후"
+                }
+            }
+            
+            if UserDefaults.standard.string(forKey: "foodDay") != nil {
+                let foodDate  = dateFormatter.date(from: UserDefaults.standard.string(forKey: "foodDay")!)
+                let dFoodDate = Int(foodDate!.timeIntervalSince(todayDate) / 86400)
+                
+                if dFoodDate == 0 {
+                    self.waterTitle.text = "오늘"
+                } else if dFoodDate < 0 {
+                    self.waterTitle.text = "필요!"
+                } else {
+                    self.foodTitle.text = String(dFoodDate) + "일 후"
+                }
+            }
             
               // 레이블에 표시
               self.nameLabel.text = tempName
@@ -258,15 +286,14 @@ class HomeVC: UIViewController {
         }
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        //let day2 = dateFormatter(dDay)
-        print(dDay)
+        let day2: String = dateFormatter.string(from: dDay!)
         switch type {
         case "water":
-            UserDefaults.standard.set(dDay, forKey: "waterDay")
+            UserDefaults.standard.set(day2, forKey: "waterDay")
             self.alert("다음 물주기 날짜까지 \(day.day!)일 남았어요.")
             break
         case "food":
-            UserDefaults.standard.set(dDay, forKey: "foodDay")
+            UserDefaults.standard.set(day2, forKey: "foodDay")
             self.alert("다음 먹이 주기 날짜까지 \(day.day!)일 남았어요.")
             break
         default:

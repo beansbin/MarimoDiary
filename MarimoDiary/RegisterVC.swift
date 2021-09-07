@@ -20,7 +20,7 @@ class RegisterVC: UIViewController {
         
         registerBtn.layer.borderWidth = 1
         registerBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
-        registerBtn.layer.cornerRadius = 13
+        registerBtn.layer.cornerRadius = 20
     }
     
     override func viewDidLayoutSubviews() {

@@ -520,7 +520,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="분양 일자를 입력하세요." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZL-Bv-6xh">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="분양 일자 입력 (20180908)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZL-Bv-6xh">
                                         <rect key="frame" x="0.0" y="50" width="181" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="I7A-KJ-CO2"/>

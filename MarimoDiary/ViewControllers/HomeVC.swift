@@ -261,9 +261,14 @@ class HomeVC: UIViewController {
     // 로컬 푸시 설정하기
     func sendNotification(day: Int, type: String) {
         let notificationContent = UNMutableNotificationContent()
-
-        notificationContent.title = "알림 테스트"
-        notificationContent.body = "이것은 알림을 테스트 하는 것이다"
+        
+        if type == "water" {
+            notificationContent.title = "물주기 알림"
+            notificationContent.body = "오늘은 마리모에게 물을 주는 날이에요!"
+        } else if type == "food" {
+            notificationContent.title = "먹이주기 알림"
+            notificationContent.body = "오늘은 마리모에게 먹이를 주는 날이에요!"
+        }
         
         let now = Date()
         let calendar = Calendar.current

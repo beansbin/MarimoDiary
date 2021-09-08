@@ -38,27 +38,16 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 위치 권한 요청
         requestAuthorization()
         while CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .notDetermined {
             
         }
-        
         locationManager!.delegate = self
         locationManagerDidChangeAuthorization(locationManager!)
         
-        switch CLLocationManager.authorizationStatus() {
-               case .authorizedAlways, .authorizedWhenInUse:
-                   print("GPS: 권한 있음")
-               case .restricted, .notDetermined:
-                   print("GPS: 아직 선택하지 않음")
-               case .denied:
-                   print("GPS: 권한 없음")
-               default:
-                   print("GPS: Default")
-               }
+        requestNotificationAuthorization()
         
-        // 알림 권한 설정
-        //requestNotificationAuthorization()
         
     }
     
@@ -224,7 +213,7 @@ class HomeVC: UIViewController {
         } else { // 없는 경우
             weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
             self.weatherLabel.text = "날씨 없음"
-            self.weatherDescriptionLabel.text = "위치 권한 아이콘을 눌러 허용해 주세요."
+            self.weatherDescriptionLabel.text = "위치 설정을 눌러 허용해 주세요."
         }
         
     }
@@ -236,6 +225,8 @@ class HomeVC: UIViewController {
 }
     
     @IBAction func waterBtn(_ sender: Any) {
+        requestNotificationAuthorization()
+        
         let center = UNUserNotificationCenter.current()
         
         center.getNotificationSettings { [self] (settings) in

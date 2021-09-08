@@ -6,12 +6,16 @@
 //
 import UIKit
 import CoreData
+import CoreLocation
 
 class RegisterVC: UIViewController, UITextFieldDelegate{
 
     @IBOutlet var registerBtn: UIButton!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var dateString: UITextField!
+    
+    var locationManager: CLLocationManager? // 위치 관련 이벤트 전달
+    var currentLocation: CLLocationCoordinate2D! // 위도, 경도 알려줌
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +49,6 @@ class RegisterVC: UIViewController, UITextFieldDelegate{
         
     }
 
-
-    
     // 등록하기 버튼을 눌렀을 때
     @IBAction func registerBtn(_ sender: Any) {
         
@@ -97,7 +99,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate{
             }
 
             // 홈으로 이동
-            guard let viewController = self.storyboard?.instantiateViewController(identifier: "HomeVC") else { return }
+            let viewController = (self.storyboard?.instantiateViewController(identifier: "HomeVC"))! as HomeVC
             
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: false)
@@ -112,6 +114,3 @@ class RegisterVC: UIViewController, UITextFieldDelegate{
 
 
 }
-
-
-

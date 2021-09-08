@@ -33,16 +33,32 @@ class HomeVC: UIViewController {
     
     var firstDay: String = ""
     
+    var locationService: LocationService.Type!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 위치 권한 설정
         requestAuthorization()
+        while CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .notDetermined {
+            
+        }
+        
+        locationManager!.delegate = self
+        locationManagerDidChangeAuthorization(locationManager!)
+        
+        switch CLLocationManager.authorizationStatus() {
+               case .authorizedAlways, .authorizedWhenInUse:
+                   print("GPS: 권한 있음")
+               case .restricted, .notDetermined:
+                   print("GPS: 아직 선택하지 않음")
+               case .denied:
+                   print("GPS: 권한 없음")
+               default:
+                   print("GPS: Default")
+               }
         
         // 알림 권한 설정
-        requestNotificationAuthorization()
-        
-        viewWillAppear(true)
+        //requestNotificationAuthorization()
         
     }
     
@@ -322,8 +338,6 @@ extension HomeVC : CLLocationManagerDelegate {
                locationManager!.desiredAccuracy = kCLLocationAccuracyBest
                //앱을 사용할때 권한요청
                locationManager!.requestWhenInUseAuthorization()
-               locationManager!.delegate = self
-               locationManagerDidChangeAuthorization(locationManager!)
            }else{
                //사용자의 위치가 바뀌고 있는지 확인하는 메소드
                locationManager!.startMonitoringSignificantLocationChanges()

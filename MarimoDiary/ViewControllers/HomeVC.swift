@@ -206,7 +206,7 @@ class HomeVC: UIViewController {
                         self.weatherDescriptionLabel.text = weatherDescription
                     }
                 case .failure(_ ):
-                    print("error")
+                    self.alert("날씨 정보를 가져올 수 없습니다.")
                 }
             }
             

@@ -7,12 +7,11 @@
 import UIKit
 import CoreData
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController, UITextFieldDelegate{
 
     @IBOutlet var registerBtn: UIButton!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var dateString: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +20,7 @@ class RegisterVC: UIViewController {
         registerBtn.layer.borderWidth = 1
         registerBtn.layer.borderColor = UIColor(named:"AccentColor")?.cgColor
         registerBtn.layer.cornerRadius = 20
+    
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,14 +42,6 @@ class RegisterVC: UIViewController {
         dateString.layer.addSublayer(border2)
         dateString.layer.masksToBounds = true
 
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) { self.addKeyboardNotifications()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications()
         
     }
 
@@ -110,17 +102,14 @@ class RegisterVC: UIViewController {
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: false)
         }
-       
-
-
         
     }
     
     // 화면 터치해서 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        
         self.view.endEditing(true)
     }
+
 
 }
 

@@ -42,6 +42,8 @@ class HomeVC: UIViewController {
         // 알림 권한 설정
         requestNotificationAuthorization()
         
+        viewWillAppear(true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

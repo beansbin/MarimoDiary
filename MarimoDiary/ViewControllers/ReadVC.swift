@@ -12,12 +12,17 @@ import CoreData
 class ReadVC: UIViewController {
     var diaryArray: [DiaryInfo] = []
     @IBOutlet weak var pageSlider: UISlider!
-
+    @IBOutlet weak var emptyImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 데이터 로드하기
         fetchContact()
+        
+        if diaryArray.count != 0 {
+            self.emptyImage.alpha = 0
+        }
     }
     
     // 슬라이더 값 변경되면 호출됨

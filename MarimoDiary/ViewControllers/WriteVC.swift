@@ -101,6 +101,8 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     
     @objc func tapPhotoView() {
+    
+        
         let alert =  UIAlertController(title: "사진 선택", message: "사진을 선택하거나 촬영해주세요.", preferredStyle: .actionSheet)
 
         let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in
@@ -126,7 +128,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         PHPhotoLibrary.requestAuthorization { status in
             return
         }
-        
+
         // 카메라 권한 요청 (최초 요청)
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             return
@@ -136,6 +138,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     // 사진첩 열기
     func openLibrary() {
+        
         let photoAuthorization = PHPhotoLibrary.authorizationStatus()
         switch photoAuthorization {
         case .authorized:

@@ -445,9 +445,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyDiary" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-bT-RNA">
+                                <rect key="frame" x="67" y="259" width="241" height="129"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8p-3Y-rZi" customClass="FSPagerView" customModule="FSPagerView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qXo-ZT-Nkv" id="8MK-ah-Jar"/>
                                     <outlet property="delegate" destination="qXo-ZT-Nkv" id="UBQ-6E-Vcc"/>
@@ -468,8 +470,12 @@
                             <constraint firstItem="a8p-3Y-rZi" firstAttribute="bottom" secondItem="KWa-Ng-VcH" secondAttribute="top" id="6lw-ND-FbL"/>
                             <constraint firstItem="a8p-3Y-rZi" firstAttribute="leading" secondItem="92R-l8-Kcu" secondAttribute="leading" id="Ajk-j9-rMx"/>
                             <constraint firstItem="a8p-3Y-rZi" firstAttribute="centerX" secondItem="92R-l8-Kcu" secondAttribute="centerX" id="N0T-39-rza"/>
+                            <constraint firstItem="ntc-bT-RNA" firstAttribute="top" secondItem="92R-l8-Kcu" secondAttribute="top" constant="259" id="Rzu-ur-3S7"/>
+                            <constraint firstItem="ntc-bT-RNA" firstAttribute="centerY" secondItem="92R-l8-Kcu" secondAttribute="centerY" id="ZUc-Rp-mA3"/>
                             <constraint firstItem="a8p-3Y-rZi" firstAttribute="top" secondItem="92R-l8-Kcu" secondAttribute="top" id="b5F-03-Rqe"/>
+                            <constraint firstItem="ntc-bT-RNA" firstAttribute="centerX" secondItem="92R-l8-Kcu" secondAttribute="centerX" id="beP-it-8h2"/>
                             <constraint firstItem="KWa-Ng-VcH" firstAttribute="leading" secondItem="92R-l8-Kcu" secondAttribute="leading" constant="16" id="haR-Xj-c2t"/>
+                            <constraint firstItem="ntc-bT-RNA" firstAttribute="leading" secondItem="92R-l8-Kcu" secondAttribute="leading" constant="67" id="mtE-JH-hAZ"/>
                             <constraint firstItem="92R-l8-Kcu" firstAttribute="trailing" secondItem="a8p-3Y-rZi" secondAttribute="trailing" id="n0C-tq-qu3"/>
                             <constraint firstItem="92R-l8-Kcu" firstAttribute="bottom" secondItem="KWa-Ng-VcH" secondAttribute="bottom" constant="6" id="rHx-hc-jlf"/>
                             <constraint firstItem="92R-l8-Kcu" firstAttribute="trailing" secondItem="KWa-Ng-VcH" secondAttribute="trailing" constant="20" id="tp6-mT-eyL"/>
@@ -477,6 +483,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ylb-vj-6WI"/>
                     <connections>
+                        <outlet property="emptyImage" destination="ntc-bT-RNA" id="NvY-6t-v3l"/>
                         <outlet property="pageSlider" destination="KWa-Ng-VcH" id="6vm-ej-8dl"/>
                         <outlet property="pagerView" destination="a8p-3Y-rZi" id="Ux9-gF-lxi"/>
                     </connections>
@@ -573,6 +580,7 @@
     <resources>
         <image name="basic" width="300" height="300"/>
         <image name="diary" width="45" height="45"/>
+        <image name="emptyDiary" width="364" height="365"/>
         <image name="food" width="45" height="45"/>
         <image name="logo" width="300" height="300"/>
         <image name="setPhoto" width="312" height="214"/>

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Thread.sleep(forTimeInterval: 1.0) // 런치스크린 표시 시간 1초 강제 지연
         UNUserNotificationCenter.current().delegate = self // 로컬 푸시 delegate
+        IQKeyboardManager.shared.enable = true // 키보드 매니저
 
         return true
     }

@@ -10,6 +10,7 @@ import PhotosUI
 import AVFoundation
 import CoreData
 
+
 class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let picker = UIImagePickerController()

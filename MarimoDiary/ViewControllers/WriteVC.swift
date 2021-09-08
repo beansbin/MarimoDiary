@@ -69,8 +69,9 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         let alert = UIAlertController(title: "저장할까요?", message: "기록된 일기는 아직 수정할 수 없어요. 기록할까요?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "기록", style: .default) { action in
             
+            
             let diaryInfo = DiaryInfo(date: self.dateLabel.text!,
-                                      image: (self.imgView.image ?? UIImage(named: "basic"))!,
+                                      image: (self.imgView.image?.fixOrientation() ?? UIImage(named: "basic"))!,
                                   contents: self.textView.text)
             
             let entity = NSEntityDescription.entity(forEntityName: "Diary", in: context)

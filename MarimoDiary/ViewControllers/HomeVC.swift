@@ -91,6 +91,7 @@ class HomeVC: UIViewController {
 
             let dateString: String = dateFormatter.string(from: Date())
             self.firstDay = dateFormatter.string(from:tempDate)
+            UserDefaults.standard.setValue(self.firstDay, forKey: "firstDay")
             
             // D+Day 구하기
             let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업

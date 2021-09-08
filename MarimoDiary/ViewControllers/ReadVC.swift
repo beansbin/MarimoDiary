@@ -120,7 +120,7 @@ extension ReadVC : FSPagerViewDelegate, FSPagerViewDataSource {
         
         let dateString: String = dateFormatter.string(from: Date())
         let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
-        let realDate: Date = dateFormatter.date(from:cell.dateLabel.text!)!
+        let realDate: Date = dateFormatter.date(from:UserDefaults.standard.string(forKey: "firstDay")!)!
         let dDay = Int(todayDate.timeIntervalSince(realDate) / 86400 + 1)
         cell.dDayLabel.text = "D + " + String(dDay)
 

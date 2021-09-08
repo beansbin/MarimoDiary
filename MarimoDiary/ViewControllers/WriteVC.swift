@@ -53,7 +53,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         // D+Day 구하기
         let todayDate: Date = dateFormatter.date(from:dateString)! // 오늘 날짜의 시간을 0으로 바꾸는 작업
         print(todayDate)
-        let realDate: Date = dateFormatter.date(from: tempDate)!
+        let realDate: Date = dateFormatter.date(from: UserDefaults.standard.string(forKey: "firstDay")!)!
         let dDay = Int(todayDate.timeIntervalSince(realDate) / 86400 + 1)
         self.dDayLabel.text = "D + " + String(dDay)
 

@@ -21,13 +21,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>카메라 접근을 허용해 주세요.</string>
+	<string>사진 업로드를 위해 카메라 접근을 허용해 주세요.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 허용에 동의해주세요.</string>
+	<string>날씨 정보를 받아오기 위해 위치 허용에 동의해주세요.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>사진 접근을 허용해 주세요.</string>
+	<string>사진 업로드를 위해 사진 접근을 허용해 주세요.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>사진 접근을 허용해 주세요.</string>
+	<string>사진 업로드를 위해 사진 접근을 허용해 주세요.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

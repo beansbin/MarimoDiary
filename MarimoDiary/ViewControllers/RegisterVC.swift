@@ -37,14 +37,16 @@ class RegisterVC: UIViewController, UITextFieldDelegate{
         border.borderWidth = width
         name.layer.addSublayer(border)
         name.layer.masksToBounds = true
-        
+
         let border2 = CALayer()
         border2.borderColor = UIColor.lightGray.cgColor
-        border2.frame = CGRect(x: 0, y: dateString.frame.size.height - width, width:  dateString.frame.size.width, height: dateString.frame.size.height)
+        border2.frame = CGRect(x: 0, y: dateString.frame.size.height - width, width: dateString.frame.size.width, height: dateString.frame.size.height)
 
         border2.borderWidth = width
         dateString.layer.addSublayer(border2)
         dateString.layer.masksToBounds = true
+
+
 
         
     }

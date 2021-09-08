@@ -33,6 +33,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         imgView.addGestureRecognizer(tapGesture)
         
         self.isModalInPresentation = true // 모달 안 닫히게 하기
+
     }
     
     @IBAction func tapClose(_ sender: Any) {
@@ -57,6 +58,7 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 
     }
     
+
     
     @IBAction func writeBtn(_ sender: Any) {
     

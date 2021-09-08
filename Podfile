@@ -9,5 +9,6 @@ target 'MarimoDiary' do
   pod 'FSPagerView'
   pod 'Alamofire', '~> 5.4'
   pod 'Gifu'
+  pod 'IQKeyboardManagerSwift' 
 
 end

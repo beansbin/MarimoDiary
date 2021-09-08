@@ -2,23 +2,27 @@ PODS:
   - Alamofire (5.4.3)
   - FSPagerView (0.8.3)
   - Gifu (3.3.1)
+  - IQKeyboardManagerSwift (6.5.6)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - FSPagerView
   - Gifu
+  - IQKeyboardManagerSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - FSPagerView
     - Gifu
+    - IQKeyboardManagerSwift
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
 
-PODFILE CHECKSUM: 34b7add6bb23b11100d7549a45865e8ff86e200c
+PODFILE CHECKSUM: 648326a93c1a56bac304f10e2a712c347795c1fe
 
 COCOAPODS: 1.10.2

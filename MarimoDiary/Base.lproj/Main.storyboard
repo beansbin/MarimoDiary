@@ -368,6 +368,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bU-cl-43o">
+                                        <rect key="frame" x="331" y="30" width="36" height="36"/>
+                                        <state key="normal" backgroundImage="close"/>
+                                        <connections>
+                                            <action selector="tapClose:" destination="QL7-BG-zDF" eventType="touchUpInside" id="qPb-hZ-Nh0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -376,6 +383,8 @@
                                     <constraint firstItem="WsK-aT-Pa0" firstAttribute="leading" secondItem="rpX-Hc-6Cm" secondAttribute="leading" id="ALi-Va-lqb"/>
                                     <constraint firstAttribute="bottom" secondItem="rpX-Hc-6Cm" secondAttribute="bottom" constant="8" id="Jrd-2m-9wo"/>
                                     <constraint firstAttribute="bottom" secondItem="WsK-aT-Pa0" secondAttribute="bottom" constant="47.5" id="TfR-U1-Vw4"/>
+                                    <constraint firstItem="8bU-cl-43o" firstAttribute="centerY" secondItem="L1Y-Ye-Q08" secondAttribute="centerY" constant="-1" id="VnJ-dg-XmX"/>
+                                    <constraint firstAttribute="trailing" secondItem="8bU-cl-43o" secondAttribute="trailing" constant="8" id="fzI-5w-F3l"/>
                                     <constraint firstItem="WsK-aT-Pa0" firstAttribute="leading" secondItem="L1Y-Ye-Q08" secondAttribute="leading" constant="22" id="jwx-l4-B3m"/>
                                     <constraint firstItem="rpX-Hc-6Cm" firstAttribute="top" secondItem="L1Y-Ye-Q08" secondAttribute="top" constant="55" id="kfl-1r-Sh2"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rpX-Hc-6Cm" secondAttribute="trailing" constant="20" symbolic="YES" id="tab-dM-FES"/>
@@ -587,6 +596,7 @@
     </scenes>
     <resources>
         <image name="basic" width="300" height="300"/>
+        <image name="close" width="36" height="36"/>
         <image name="diary" width="45" height="45"/>
         <image name="emptyDiary" width="364" height="365"/>
         <image name="food" width="45" height="45"/>

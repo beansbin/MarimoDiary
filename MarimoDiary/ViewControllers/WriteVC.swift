@@ -31,11 +31,14 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhotoView))
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(tapGesture)
+        
+        self.isModalInPresentation = true // 모달 안 닫히게 하기
     }
     
+    @IBAction func tapClose(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewWillAppear(_ animated: Bool) {
-        self.addKeyboardNotifications()
-        
         // 오늘 날짜 포맷 맞추기(date to string)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -54,10 +57,6 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 
     }
     
-    override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications()
-        
-    }
-
     
     @IBAction func writeBtn(_ sender: Any) {
     
@@ -101,7 +100,6 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     
     @objc func tapPhotoView() {
-    
         
         let alert =  UIAlertController(title: "사진 선택", message: "사진을 선택하거나 촬영해주세요.", preferredStyle: .actionSheet)
 
@@ -177,7 +175,6 @@ class WriteVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 
     // 화면 터치해서 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-
         self.view.endEditing(true)
     }
 

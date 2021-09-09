@@ -52,10 +52,6 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // 데이터 패치
-        OperationQueue.main.addOperation {
-            self.fetchData()
-        }
         
         DispatchQueue.main.async {
             self.weatherImgView.animate(withGIFNamed: "loading", animationBlock:  {
@@ -63,8 +59,13 @@ class HomeVC: UIViewController {
             })
         }
         
+        // 데이터 패치
+        OperationQueue.main.addOperation {
+            self.fetchData()
+        }
         
-     
+        
+        
     }
     
     // 데이터 패치 함수
@@ -209,12 +210,12 @@ class HomeVC: UIViewController {
                     self.alert("날씨 정보를 가져올 수 없습니다.")
                 }
             }
-            
-           
         } else { // 없는 경우
-            weatherImage = UIImage(named: "basic") ?? UIImage(named: "basic")!
+            print("알림 없음")
+            self.weatherImgView.stopAnimatingGIF()
             self.weatherLabel.text = "날씨 없음"
             self.weatherDescriptionLabel.text = "위치 설정을 눌러 허용해 주세요."
+            self.weatherImgView.image = UIImage(named: "basic")
         }
         
     }

@@ -65,7 +65,6 @@ class HomeVC: UIViewController {
         }
         
         
-        
     }
     
     // 데이터 패치 함수
@@ -234,7 +233,16 @@ class HomeVC: UIViewController {
         center.getNotificationSettings { [self] (settings) in
             if(settings.authorizationStatus == .authorized)
             {
-                self.sendNotification(day: 14, type: "water")
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "물주기", message: "오늘 마리모에게 물을 줬나요?", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "네", style: .default) { action in
+                        self.sendNotification(day: 14, type: "water")
+                    })
+                    alert.addAction(UIAlertAction(title: "아니요", style: .default) { action in
+                        //self.dismiss(animated: true)
+                    })
+                    self.present(alert, animated: true, completion: nil)
+                    }
             }
             else
             {
@@ -247,14 +255,16 @@ class HomeVC: UIViewController {
         let center = UNUserNotificationCenter.current()
         
         center.getNotificationSettings { (settings) in
-            if(settings.authorizationStatus == .authorized)
-            {
-                self.sendNotification(day: 14, type: "food")
-            }
-            else
-            {
-                self.alert("설정 > 알림 권한을 허용해 주세요.")
-            }
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "먹이 주기", message: "오늘 마리모에게 먹이를 줬나요?", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "네", style: .default) { action in
+                    self.sendNotification(day: 14, type: "food")
+                })
+                alert.addAction(UIAlertAction(title: "아니요", style: .default) { action in
+                    //self.dismiss(animated: true)
+                })
+                self.present(alert, animated: true, completion: nil)
+                }
         }
     }
     

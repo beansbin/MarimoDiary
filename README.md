@@ -5,7 +5,7 @@
 > - *E-mail : beans_bin@naver.com*  
 > - *앱스토어 url : https://apps.apple.com/kr/app/%EB%A7%88%EB%A6%AC%EB%AA%A8-%EC%84%B1%EC%9E%A5%EC%9D%BC%EA%B8%B0/id1584896744*  
 ## 소개
-<img src="https://user-images.githubusercontent.com/46108770/132937611-3fcd471c-df1b-4df2-8c13-b96863ec8769.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937615-406df455-1c78-4923-b0f8-3705852e398a.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937619-f59c3d7e-e22b-4cc5-a2a4-8fd265871862.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937624-f6bc2f11-fb01-412c-99ad-9edacab7e272.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937626-69e3c794-f560-4b13-8ed5-471ef17a0e4c.PNG"  width="170" height="367.92">
+<img src="https://user-images.githubusercontent.com/46108770/132937611-3fcd471c-df1b-4df2-8c13-b96863ec8769.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937619-f59c3d7e-e22b-4cc5-a2a4-8fd265871862.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937624-f6bc2f11-fb01-412c-99ad-9edacab7e272.PNG"  width="170" height="367.92"> <img src="https://user-images.githubusercontent.com/46108770/132937626-69e3c794-f560-4b13-8ed5-471ef17a0e4c.PNG"  width="170" height="367.92">
 
 - 애완식물 마리모를 등록하면 D-day, 사진과 함께 성장 일기를 기록할 수 있어요.
 - 마리모에게 물과 먹이를 주고 어플에 기록하면 다음 물과 먹이를 줄 날짜를 푸시 알림으로 알 수 있어요.

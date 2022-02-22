@@ -14,5 +14,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run tests
-      run: swift build -v
+      run: swift
         xcodebuild test -project MarimoDiary.xcworkspace -scheme MarimoDiary -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=13.6'

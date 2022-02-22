@@ -23,4 +23,4 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: 🗂 MarimoDiary Build Tests 🗂
-      run: xcodebuild test -project ./MarimoDiary/MarimoDiary.xcworkspace -destination "platform=iOS Simulator,name=iPhone 12,OS=latest"
+      run: xcodebuild test -project ./MarimoDiary.xcworkspace -destination "platform=iOS Simulator,name=iPhone 12,OS=latest"

@@ -1,11 +1,13 @@
-name: Swift
+# workflow 의 이름
+name: Run Test
 
 on:
+  # develop 브랜치에 push 나 pull request 이벤트가 일어났을때 해당 workflow 를 trigger
   push:
     branches: [ develop ]
   pull_request:
     branches: [ develop ]
-
+  
 jobs:
   build:
 
@@ -14,5 +16,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run tests
-      run: swift
-        xcodebuild test -project MarimoDiary.xcworkspace -scheme MarimoDiary -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=13.6'
+      run:
+        xcodebuild test -workspace MarimoDiary.xcworkspace -scheme MarimoDiary -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=13.0'
